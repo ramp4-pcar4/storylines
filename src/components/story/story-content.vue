@@ -12,6 +12,7 @@
             :plugin="!!configFileStructure || !!plugin"
             :lang="lang"
             :style="{ top: headerHeight + 'px' }"
+            @scroll-to-slide="setTargetIndex"
             v-if="$props.config?.tocOrientation === 'horizontal'"
         />
         <chapter-menu
@@ -22,6 +23,7 @@
             :customToc="config.tableOfContents"
             :plugin="!!configFileStructure || !!plugin"
             :lang="lang"
+            @scroll-to-slide="setTargetIndex"
             v-else
         />
 
@@ -48,6 +50,7 @@
                         :configFileStructure="configFileStructure"
                         :class="addPanelPadding(idx)"
                         :slideIdx="idx"
+                        :forceLoad="config.lazyLoad && slideInRange(idx)"
                         :lang="lang"
                         :background="hasBackground"
                         :lazyLoad="config.lazyLoad ?? true"
@@ -61,7 +64,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { onMounted, ref } from 'vue';
+import { onMounted, onUpdated, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { ConfigFileStructure, Slide, StoryRampConfig } from '@storylines/definitions';
 import 'intersection-observer';
@@ -92,6 +95,10 @@ const props = defineProps({
     },
     headerHeight: {
         type: Number
+    },
+    targetIndex: {
+        type: Number,
+        required: false
     }
 });
 
@@ -101,8 +108,22 @@ const backgroundImage = ref<string>('none');
 const backgroundImageAlt = ref<string>('');
 const hasBackground = ref<boolean>(false); // different from above; this considers animation time
 const backgroundCss = ref<string>('');
+const targetIndex = ref(-1);
+
+onUpdated(() => {
+    // Needed for mobile toc, as well as when a slide id is manually inserted in the url. The change made to
+    // `targetIndex` here will result in slideInRange() being called for each slide component
+    if (props.targetIndex) {
+        targetIndex.value = props.targetIndex;
+    }
+});
 
 onMounted(() => {
+    // Needed for mobile toc. The change made to `targetIndex` here will result in slideInRange() being called
+    // for each slide component
+    if (props.targetIndex) {
+        targetIndex.value = props.targetIndex;
+    }
     const hash = route?.hash.substring(1);
     if (hash) {
         // Wait for a short period of time and then jump to the anchor.
@@ -124,6 +145,30 @@ onMounted(() => {
     // as you scroll down.
     handleSlideChange(0);
 });
+
+// Determines whether the slide corresponding to the provided index
+const slideInRange = (index) => {
+    console.log(' ');
+    console.log('slideinRange()');
+    console.log('curr slide index');
+    console.log(index);
+    console.log('active chapter index');
+    console.log(activeChapterIndex.value);
+    console.log('target index');
+    console.log(targetIndex.value);
+    return (
+        (index <= activeChapterIndex.value && index >= targetIndex.value) ||
+        (index >= activeChapterIndex.value && index <= targetIndex.value)
+    );
+};
+
+const setTargetIndex = (index) => {
+    console.log('set target index');
+    console.log(index);
+    // For every slide whose index is between `activeChapterIndex` and `index`, we must ensure that any image/video slides
+    // are force loaded. Ensure that this only happens if lazy loading is enabled. Otherwise do nothing
+    targetIndex.value = index;
+};
 
 const handleSlideChange = (event: number): void => {
     const img = (props.config.slides[event] as Slide).backgroundImage;

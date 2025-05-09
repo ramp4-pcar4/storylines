@@ -129,7 +129,7 @@
                         'is-active': lastActiveIdx === item.slideIndex || isSublistActive(item.sublist)
                     }"
                 >
-                    <toc-item :tocItem="item" :slides="slides" :plugin="plugin">
+                    <toc-item :tocItem="item" :slides="slides" :plugin="plugin" @scroll-to-slide="scrollToTarget">
                         <button
                             class="mr-1"
                             :aria-label="$t('chapters.menu.dropdown')"
@@ -174,6 +174,7 @@
                                 :slides="slides"
                                 :parentItem="false"
                                 :plugin="plugin"
+                                @scroll-to-slide="scrollToTarget"
                             ></toc-item>
                         </li>
                     </ul>
@@ -186,7 +187,12 @@
                     :key="idx"
                     :class="{ 'is-active': lastActiveIdx === slide.index }"
                 >
-                    <toc-item :tocItem="{ ...slide, slideIndex: slide.index }" :slides="slides" :plugin="plugin"></toc-item>
+                    <toc-item
+                        :tocItem="{ ...slide, slideIndex: slide.index }"
+                        :slides="slides"
+                        :plugin="plugin"
+                        @scroll-to-slide="scrollToTarget"
+                    ></toc-item>
                 </li>
             </template>
         </ul>
@@ -231,6 +237,8 @@ const lastActiveIdx = ref(-1);
 
 const sublistToggled = ref({} as Record<number, boolean>);
 
+const emit = defineEmits(['scroll-to-slide']);
+
 // filter out which slides are visible in the table of contents while preserving original slide index
 const tocSlides = computed(() => {
     let slides = props.slides.map((slide, idx) => ({ ...slide, index: idx }));
@@ -274,6 +282,14 @@ onMounted(() => {
     }
 });
 
+const scrollToTarget = (index) => {
+    console.log('CURRENT SLIDE INDEX');
+    console.log(props.activeChapterIndex);
+    console.log('DESTINATION SLIDE INDEX');
+    console.log(index);
+    emit('scroll-to-slide', index);
+};
+
 const scrollToChapter = (id: string): void => {
     const el = document.getElementById(id);
     if (el) {
@@ -291,14 +307,16 @@ const isSublistToggled = (index: number): boolean => {
 
 const isSublistActive = (sublist: MenuItem[] | undefined): boolean => {
     if (sublist) {
-        return sublist.some(subItem => lastActiveIdx.value === subItem.slideIndex);
+        return sublist.some((subItem) => lastActiveIdx.value === subItem.slideIndex);
     }
     return false;
 };
 
 const updateActiveIdx = () => {
     if (props.customToc) {
-        const prevCustomSlides: MenuItem[] = customTocSlides.value!.filter((slide) => slide.slideIndex <= props.activeChapterIndex);
+        const prevCustomSlides: MenuItem[] = customTocSlides.value!.filter(
+            (slide) => slide.slideIndex <= props.activeChapterIndex
+        );
         lastActiveIdx.value = prevCustomSlides.length ? prevCustomSlides[prevCustomSlides.length - 1].slideIndex : -1;
     } else {
         const prevSlides = tocSlides.value.filter((slide) => slide.index <= props.activeChapterIndex);

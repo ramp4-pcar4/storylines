@@ -152,7 +152,7 @@
                         'is-active': lastActiveIdx === item.slideIndex || isSublistActive(item.sublist)
                     }"
                 >
-                    <toc-item :tocItem="item" :slides="slides" :plugin="plugin">
+                    <toc-item :tocItem="item" :slides="slides" :plugin="plugin" @scroll-to-slide="scrollToTarget">
                         <button
                             class="mr-1"
                             :aria-label="$t('chapters.menu.dropdown')"
@@ -214,6 +214,7 @@
                         :tocItem="{ ...slide, slideIndex: slide.index }"
                         :slides="slides"
                         :plugin="plugin"
+                        @scroll-to-slide="scrollToTarget"
                     ></toc-item>
                 </li>
             </template>
@@ -261,6 +262,8 @@ const lastActiveIdx = ref(-1);
 
 const sublistToggled = ref({} as Record<number, boolean>);
 
+const emit = defineEmits(['scroll-to-slide']);
+
 // filter out which slides are visible in the table of contents while preserving original slide index
 const tocSlides = computed(() => {
     let slides = props.slides.map((slide, idx) => ({ ...slide, index: idx }));
@@ -269,6 +272,14 @@ const tocSlides = computed(() => {
     }
     return slides;
 });
+
+const scrollToTarget = (index) => {
+    console.log('CURRENT SLIDE INDEX');
+    console.log(props.activeChapterIndex);
+    console.log('DESTINATION SLIDE INDEX');
+    console.log(index);
+    emit('scroll-to-slide', index);
+};
 
 const customTocSlides = computed(() => {
     if (props.customToc) {

@@ -50,7 +50,13 @@
                     ref="itemContainer"
                     @focusout="handleFocus(idx)"
                 >
-                    <toc-item :tocItem="item" :slides="slides" :verticalToc="false" :plugin="plugin">
+                    <toc-item
+                        :tocItem="item"
+                        :slides="slides"
+                        :verticalToc="false"
+                        :plugin="plugin"
+                        @scroll-to-slide="scrollToTarget"
+                    >
                         <button
                             class="mr-1"
                             :aria-label="$t('chapters.menu.dropdown')"
@@ -89,6 +95,7 @@
                                 :parentItem="false"
                                 :verticalToc="false"
                                 :plugin="plugin"
+                                @scroll-to-slide="scrollToTarget"
                             ></toc-item>
                         </li>
                     </ul>
@@ -110,6 +117,7 @@
                         :slides="slides"
                         :verticalToc="false"
                         :plugin="plugin"
+                        @scroll-to-slide="scrollToTarget"
                     ></toc-item>
                 </li>
             </template>
@@ -155,6 +163,8 @@ const lastActiveIdx = ref(-1);
 
 const sublistToggled = ref<number>(-1);
 const itemContainer = ref(null);
+
+const emit = defineEmits(['scroll-to-slide']);
 
 // filter out which slides are visible in the table of contents while preserving original slide index
 const tocSlides = computed(() => {
@@ -212,6 +222,14 @@ const handleMouseClick = (event: MouseEvent): void => {
     } else {
         hideSublists();
     }
+};
+
+const scrollToTarget = (index) => {
+    console.log('CURRENT SLIDE INDEX');
+    console.log(props.activeChapterIndex);
+    console.log('DESTINATION SLIDE INDEX');
+    console.log(index);
+    emit('scroll-to-slide', index);
 };
 
 const scrollToChapter = (id: string): void => {

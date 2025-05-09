@@ -19,6 +19,7 @@
             :class="config.cssClasses"
             :isSlideshowItem="isSlideshowItem"
             :lazyLoad="lazyLoad"
+            :forceLoad="forceLoad"
             :background="background"
         ></component>
     </div>
@@ -26,6 +27,7 @@
 
 <script setup lang="ts">
 import type { Component, PropType } from 'vue';
+import { onUpdated } from 'vue';
 import { BasePanel, ConfigFileStructure, PanelType } from '@storylines/definitions';
 
 import TextPanel from './text-panel.vue';
@@ -63,10 +65,19 @@ const props = defineProps({
     lazyLoad: {
         type: Boolean
     },
+    forceLoad: {
+        type: Boolean
+    },
     isSlideshowItem: {
         type: Boolean,
         required: false
     }
+});
+
+onUpdated(() => {
+    console.log('updating panel');
+    console.log('forceload');
+    console.log(props.forceLoad);
 });
 
 /**

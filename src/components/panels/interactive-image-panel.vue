@@ -88,7 +88,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { defineAsyncComponent, getCurrentInstance, onMounted, ref } from 'vue';
+import { defineAsyncComponent, getCurrentInstance, onMounted, onUpdated, ref } from 'vue';
 import type {
     BasePanel,
     ConfigFileStructure,
@@ -115,6 +115,9 @@ const props = defineProps({
     },
     lazyLoad: {
         type: Boolean
+    },
+    forceLoad: {
+        type: Boolean
     }
 });
 
@@ -138,15 +141,39 @@ const isMobile = ref(false);
 const key = getCurrentInstance()?.vnode.key as string;
 
 const observer = ref<IntersectionObserver | undefined>(undefined);
+const loaded = ref<Boolean>(false);
+
+onUpdated(() => {
+    console.log(' ');
+    console.log('updating interactive image panel');
+    if (!loaded.value && props.forceLoad) {
+        console.log('force loading interactive image panel');
+        console.log('slide idx');
+        console.log(props.slideIdx);
+        activeImage.value = currentDefaultImage.value;
+        getCurrentInstance()?.proxy?.$forceUpdate();
+        loaded.value = true;
+    }
+});
 
 onMounted(() => {
+    loaded.value = !props.lazyLoad; // if lazy loading is enabled, the image content will initially not be loaded
     if (props.lazyLoad && props.slideIdx && props.slideIdx > 2) {
         observer.value = new IntersectionObserver(([image]) => {
+            // dont want image to be loaded a second time if it was force loaded already
+            if (loaded.value) {
+                console.log('closing IO for interactive image panel');
+                (observer.value as IntersectionObserver).disconnect();
+            }
             // lazy load images
-            if (image.isIntersecting) {
+            else if (image.isIntersecting) {
+                console.log('lazy load interactive image panel');
+                console.log('slide idx');
+                console.log(props.slideIdx);
                 activeImage.value = currentDefaultImage.value;
                 getCurrentInstance()?.proxy?.$forceUpdate();
                 (observer.value as IntersectionObserver).disconnect();
+                loaded.value = true;
             }
         });
     }

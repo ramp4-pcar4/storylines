@@ -84,7 +84,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import type { ConfigFileStructure, VideoPanel } from '@storylines/definitions';
-import { onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeMount, onBeforeUnmount, onMounted, onUpdated, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import MarkdownIt from 'markdown-it';
 
@@ -105,6 +105,9 @@ const props = defineProps({
     },
     lazyLoad: {
         type: Boolean
+    },
+    forceLoad: {
+        type: Boolean
     }
 });
 
@@ -121,6 +124,7 @@ const transcriptContent = ref('');
 
 const vid = ref<HTMLVideoElement>();
 const observer = ref<IntersectionObserver | undefined>(undefined);
+const loaded = ref<Boolean>(false);
 
 onBeforeMount(() => {
     lang.value = (route?.params.lang as string) ? (route?.params.lang as string) : 'en';
@@ -132,13 +136,33 @@ onBeforeMount(() => {
     }
 });
 
+onUpdated(() => {
+    console.log('updating video panel');
+    console.log('slide idx');
+    console.log(props.slideIdx);
+    if (!loaded.value && vid.value && props.forceLoad) {
+        console.log('force load video panel');
+        vid.value.load();
+        loaded.value = true;
+    }
+});
+
 onMounted(() => {
+    loaded.value = !props.lazyLoad; // if lazy loading is enabled, the video content will initially not be loaded
     // lazy load videos
     if (props.lazyLoad && props.slideIdx > 2) {
         observer.value = new IntersectionObserver(([video]) => {
-            if (video.isIntersecting) {
+            // dont want video to be loaded a second time if it was force loaded already
+            if (loaded.value) {
+                console.log('closing IO for video panel');
+                (observer.value as IntersectionObserver).disconnect();
+            } else if (video.isIntersecting) {
+                console.log('lazy load video panel');
+                console.log('slide idx');
+                console.log(props.slideIdx);
                 vid.value?.load();
                 (observer.value as IntersectionObserver).disconnect();
+                loaded.value = true;
             }
         });
     }

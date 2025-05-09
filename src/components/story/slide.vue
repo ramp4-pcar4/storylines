@@ -14,6 +14,7 @@
             :ratio="defaultRatio"
             :slideIdx="slideIdx"
             :lazyLoad="lazyLoad"
+            :forceLoad="forceLoad"
             :lang="lang"
             :class="determinePanelOrder(idx)"
             :background="!!config.backgroundImage && background"
@@ -23,7 +24,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { getCurrentInstance, onMounted, ref } from 'vue';
+import { getCurrentInstance, onMounted, onUpdated, ref } from 'vue';
 import { ConfigFileStructure, PanelType, Slide } from '@storylines/definitions';
 import Panel from '@storylines/components/panels/panel.vue';
 
@@ -49,6 +50,9 @@ const props = defineProps({
     },
     lazyLoad: {
         type: Boolean
+    },
+    forceLoad: {
+        type: Boolean
     }
 });
 
@@ -59,6 +63,14 @@ const scrollThreshold = ref(defaultThreshold);
 
 const slide = ref<Element>();
 const observer = ref<IntersectionObserver | undefined>(undefined);
+
+onUpdated(() => {
+    console.log('updating slide');
+    console.log('slide index');
+    console.log(props.slideIdx);
+    console.log('forceloadd');
+    console.log(props.forceLoad);
+});
 
 onMounted(() => {
     const panels = props.config.panel;
