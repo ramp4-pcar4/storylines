@@ -23,7 +23,8 @@ const baseConfig: UserConfigExport = {
     base: './',
     resolve: {
         alias: {
-            '@storylines': path.resolve(__dirname, 'src')
+            '@storylines': path.resolve(__dirname, 'src'),
+            vue: 'vue/dist/vue.esm-bundler.js'
         }
     },
     build: {

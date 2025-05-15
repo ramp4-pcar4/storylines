@@ -334,9 +334,6 @@
                     "$ref": "#/$defs/multimediaVideo"
                 },
                 {
-                    "$ref": "#/$defs/multimediaAudio"
-                },
-                {
                     "$ref": "#/$defs/multimediaSlideshow"
                 }
             ],
@@ -766,26 +763,6 @@
                 }
             },
             "required": ["src", "type", "videoType"]
-        },
-
-        "multimediaAudio": {
-            "type": "object",
-            "description": "A multimedia audio component.",
-            "properties": {
-                "src": {
-                    "type": "string",
-                    "description": "** TODO: the plan just has 'type' here, how do we want to distinguish mp3, wav, etc?"
-                },
-                "caption": {
-                    "type": "string",
-                    "description": "Supporting text content for the audio."
-                },
-                "type": {
-                    "type": "string",
-                    "enum": ["audio"]
-                }
-            },
-            "required": ["src", "type"]
         },
 
         "multimediaSlideshow": {

@@ -153,7 +153,6 @@ export enum PanelType {
     InteractiveMap = 'interactive-map',
     Chart = 'chart',
     Video = 'video',
-    Audio = 'audio',
     Slideshow = 'slideshow',
     SlideshowImage = 'slideshowImage',
     SlideshowChart = 'slideshowChart',
@@ -340,12 +339,6 @@ export interface VideoPanel extends BasePanel {
     height?: number;
     caption?: string;
     autoplay?: boolean;
-}
-
-export interface AudioPanel extends BasePanel {
-    type: PanelType.Audio;
-    src: string;
-    caption?: string;
 }
 
 export interface SlideshowPanel extends BasePanel {

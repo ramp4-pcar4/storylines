@@ -8,17 +8,18 @@
             {{ config.title }}
         </component>
 
-        <div class="px-10 md-content object-contain" v-html="mdContent"></div>
+        <TextContent :content="mdContent"></TextContent>
     </scrollama>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import type { PropType } from 'vue';
-import { TextPanel } from '@storylines/definitions';
+import type { TextPanel } from '@storylines/definitions';
 
 import MarkdownIt from 'markdown-it';
 import Scrollama from './helpers/scrollama.vue';
+import TextContent from './helpers/text-content.vue';
 
 const props = defineProps({
     config: {

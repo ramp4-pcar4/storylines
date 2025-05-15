@@ -19,7 +19,7 @@
             "panel": [
                 {
                     "title": "Overview",
-                    "content": "**Oil Sands Extraction** is part of the National Pollutant Release Inventory's (NPRI) Sector Overview series. This sector overview explores NPRI substances released, disposed, and transferred by this industry. It also summarizes what steps facilities in this sector take to mitigate their environmental impacts.\n\nBusinesses, institutions and other facilities across Canada must report their releases, transfers and disposals of pollutants to air, water and land annually to the Government of Canada's NPRI. The information collected is public, helps governments set environmental priorities and monitor environmental performance, and provides Canadians with an opportunity to learn about pollution in their surroundings.",
+                    "content": "**Oil Sands Extraction** is part of the National Pollutant Release Inventory's (NPRI) Sector Overview series. This sector overview explores NPRI substances released, disposed, and transferred by this industry. It also summarizes what steps facilities in this sector take to mitigate their environmental impacts. <AudioPlayer src='https://www.w3schools.com/html/horse.ogg' title='An audio clip with no transcript.'></AudioPlayer> <AudioPlayer src='00000000-0000-0000-0000-000000000000/assets/en/horse.ogv' title='An audio clip with a transcript.' transcript='This audio clip has a transcript. Transcripts support <a href=\"https://google.ca\">HTML</a> and *Markdown*.<br /><br />Curabitur at felis non libero suscipit fermentum. Duis volutpat, ante et scelerisque luctus, sem nulla placerat leo, at aliquet libero justo id nulla. Integer at dui nec magna posuere fringilla. Nunc euismod bibendum augue. Cras nec ligula velit. Donec in laoreet leo.'></AudioPlayer> Businesses, institutions and other facilities across Canada must report their releases, transfers and disposals of pollutants to air, water and land annually to the Government of Canada's NPRI. The information collected is public, helps governments set environmental priorities and monitor environmental performance, and provides Canadians with an opportunity to learn about pollution in their surroundings.",
                     "type": "text"
                 },
                 {
@@ -189,7 +189,7 @@
                         }
                     ],
                     "duration": 2000
-                }   
+                }
             ],
             "includeInToc": false
         },
@@ -695,7 +695,7 @@
     "contextLabel": "Explore National Pollutant Release Inventory data",
     "lang": "en",
     "lazyLoad": false,
-    "breadcrumbs": [    
+    "breadcrumbs": [
         {
             "title": "Environment and natural resources",
             "href": "https://www.canada.ca/en/services/environment.html"

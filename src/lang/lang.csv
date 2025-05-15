@@ -19,6 +19,9 @@ fullscreen.activate,Enter Fullscreen,1,Entrer en plein écran,0
 fullscreen.deactivate,Exit Fullscreen,1,Sortie plein écran,0
 dynamic.back,Back,1,Retour,0
 video.transcript,Transcript,1,Transcription,0
+audio.transcript.show,View Transcript,1,Afficher la transcription,0
+audio.transcript.hide,Hide Transcript,1,Cacher la transcription,0
+audio.transcript.none,No transcript available,1,Aucune transcription disponible,0
 chart.viewFullscreen,View in full screen,1,Plein Écran,1
 chart.printChart,Print chart,1,Imprimer,1
 chart.downloadPNG,Download PNG,1,Télécharger PNG,1
