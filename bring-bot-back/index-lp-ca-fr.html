@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+
+    <title>Scénarios de PCAR</title>
+
+    <!-- Load stylesheet -->
+    <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/cdts-styles.css" />
+
+    <!-- Load/activate closure template scripts -->
+    <script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-fr.js"
+            data-cdts-setup='{"cdnEnv": "prod"}'></script>
+  <script type="module" crossorigin src="./assets/main-C2Xfzl1b.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-DNvM8ZW_.css">
+</head>
+<body>
+    <!-- template top and no-script fallback -->
+    <div id="lp-header">
+        <header>
+            <div id="wb-bnr" class="container">
+                <div class="row">
+                    <div>
+                        <section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right">
+
+                            <a id="langToggle" lang="en" hreflang="en" href="index-lp-ca-en.html#/en/">
+                                <span class="hidden-xs" translate="no">English</span>
+                                <abbr title="English" translate="no" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">en</abbr>
+                            </a>
+
+                        </section>
+                    </div>
+
+                    <div class="brand col-xs-9 col-sm-5 col-md-4">
+                        <a href="https://www.canada.ca/fr.html">
+                            <img src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/assets/sig-blk-fr.svg"
+                                 alt="" /><span class="wb-inv">
+                                Gouvernement du Canada / <span lang="en">Government of Canada</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transactBar"></div>
+
+            <nav id="wb-bc" property="breadcrumb" aria-labelledby="breadcrumbPosition">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li><a href="https://www.canada.ca/en.html">Canada.ca</a></li>
+                    </ol>
+                </div>
+            </nav>
+
+        </header>
+    </div>
+
+    <div id="wb-cont">
+        <div id="app"></div>
+    </div>
+
+    <!-- template footer and no-script fallback -->
+    <div id="lp-footer">
+        <footer id="wb-info">
+            <h2 class="wb-inv">À propos de ce site</h2>
+            <div class="gc-sub-footer">
+                <div class="container d-flex align-items-center">
+                    <nav aria-labelledby="cdts-aboutGcweb">
+                        <h3 class="wb-inv" id="cdts-aboutGcweb">Organisation du gouvernement du Canada</h3>
+                        <ul>
+                            <li><a href="https://www.canada.ca/fr/transparence/avis.html">Avis</a></li>
+                            <li><a href="https://www.canada.ca/fr/transparence/confidentialite.html">Confidentialité</a></li>
+                        </ul>
+                    </nav>
+                    <div class="wtrmrk align-self-end">
+                        <img src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/wet-boew/assets/wmms-blk.svg" alt="Symbole du gouvernement du Canada">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        // URL Parsing for Language Switch
+        var url = new URL(window.location.href);
+        var hashParams = url.hash.split('/');
+
+        // If there's an empty item at the end of the paramater list (occurs if there's a trailing slash in the URL), clear it.
+        if (hashParams.at(-1).length === 0) {
+            hashParams.pop();
+        }
+
+        // If content after the last slash in the URL is an anchor, clear it.
+        if (hashParams.at(-1).startsWith('#')) {
+            hashParams.pop();
+        }
+
+        // Finally, extract the StoryRAMP ID from the URL. If it has an anchor tag in it, remove it since it's not useful on the new page.
+        var productID = hashParams.pop();
+
+        if (productID.includes('#')) {
+            productID = productID.split('#')[0];
+        }
+
+        // Check to see if the 'editor' route is included in the URL. If so, keep it.
+        var hasEditor = hashParams.pop() === 'editor';
+
+        // Build new URL route.
+        var newURLRoute = hasEditor ? 'editor/' + productID : productID;
+
+        var langChange = document.getElementById('langToggle');
+        langChange.href = 'index-lp-ca-en.html#/en/' + newURLRoute;
+
+        document.addEventListener('Storylines-Loaded', (payload) => {
+            const breadcrumbs = payload.detail.config.breadcrumbs ?? []; // default to an empty array if this property isn't defined.
+            const breadcrumbList = document.querySelectorAll('#wb-bc > .container > .breadcrumb')[0];
+            const firstElement = breadcrumbList.children[0]; // should be the `Canada.ca` breadcrumb.
+
+            // Reset the breadcrumb list.
+            breadcrumbList.innerHTML = ``;
+
+            // Add the `Canada.ca` element back to the list of breadcrumbs.
+            breadcrumbList.appendChild(firstElement);
+
+            // Create an HTML li element for each of the breadcrumbs to add and then append them to the breadcrumb list.
+            breadcrumbs.forEach((b) => {
+                const node = document.createElement('li');
+                node.innerHTML = `<a href="${b.href}">${b.title}</a>`;
+                breadcrumbList.appendChild(node);
+            });
+        });
+
+        document.querySelectorAll('.wb-sl').forEach(function (skipLink) {
+            skipLink.setAttribute('href', url.href.split(/#[^\/]/)[0] + '#' + skipLink.href.split('#')[1]);
+        });
+        var interval = setInterval(function () {
+            var links = document.querySelectorAll('.wb-sl');
+            if (links.length === 3) {
+                clearInterval(interval);
+                links[2].setAttribute('href', url.href.split(/#[^\/]/)[0] + '?' + links[2].href.split('?')[1]);
+            }
+        }, 200);
+    </script>
+
+
+    <style>/* purgecss start ignore */
+
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+
+html {
+  font-size: 16px;
+}
+
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+
+/* purgecss end ignore */
+    </style>
+</body>
+</html>
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2021 Webtrends Inc.  All rights reserved. -->
+<!-- Version: 9.4.0 -->
+<script src="scripts/webtrends.js" type="text/javascript"></script>
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<!-- ----------------------------------------------------------------------------------- -->
+<script type="text/javascript">
+    //<![CDATA[
+    var _tag = new WebTrends();
+    _tag.dcsGetId();
+    //]]>
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    _tag.dcsCustom = function () {
+        // Add custom parameters here.
+        //_tag.DCSext.param_name=param_value;
+    };
+    _tag.dcsCollect();
+    //]]>
+</script>
+<noscript>
+    <div>
+        <img alt="DCSIMG"
+             id="DCSIMG"
+             width="1"
+             height="1"
+             src="https://sdc.ncr.ec.gc.ca/dcs2kf7dq10000kzg8kpqz5gp_3q4i/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.environmental-maps.canada.ca" />
+    </div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
