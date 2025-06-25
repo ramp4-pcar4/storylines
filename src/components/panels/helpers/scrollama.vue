@@ -36,6 +36,14 @@ watchEffect(() => {
     setup();
 });
 
+function getDynamicOffset(): number {
+    const navbar = document.getElementById('h-navbar');
+    if (!navbar) return 0.2;
+    const navbarHeight = navbar.offsetHeight;
+    const offsetRatio = navbarHeight / window.innerHeight;
+    return offsetRatio + 0.08;
+}
+
 function setup() {
     if (_scroller.value) {
         _scroller.value.destroy();
@@ -45,7 +53,7 @@ function setup() {
         const opts: any = {
             step: Array.from(rootElement.value.children),
             progress: 'step-progress' in attrs,
-            offset: 0.2,
+            offset: getDynamicOffset(),
             ...attrs
         };
 
