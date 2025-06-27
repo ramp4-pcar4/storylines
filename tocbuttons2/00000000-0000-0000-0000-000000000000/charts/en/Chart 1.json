@@ -1,0 +1,117 @@
+{
+    "title": {
+        "text": "Chart 1"
+    },
+    "subtitle": {
+        "text": ""
+    },
+    "exporting": {},
+    "credits": {
+        "enabled": false
+    },
+    "lang": {
+        "thousandsSep": ","
+    },
+    "series": [
+        {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": false,
+            "enableMouseTracking": true,
+            "events": {},
+            "marker": {
+                "enabledThreshold": 2,
+                "lineColor": "#ffffff",
+                "lineWidth": 0,
+                "radius": 4,
+                "states": {
+                    "normal": {
+                        "animation": true
+                    },
+                    "hover": {
+                        "animation": {
+                            "duration": 150
+                        },
+                        "enabled": true,
+                        "radiusPlus": 2,
+                        "lineWidthPlus": 1
+                    },
+                    "select": {
+                        "fillColor": "#cccccc",
+                        "lineColor": "#000000",
+                        "lineWidth": 2
+                    }
+                }
+            },
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "animation": {},
+                "align": "center",
+                "borderWidth": 0,
+                "defer": true,
+                "formatter": "function(){let{numberFormatter:t}=this.series.chart;return\"number\"!=typeof this.y?\"\":t(this.y,-1)}",
+                "padding": 5,
+                "style": {
+                    "fontSize": "0.7em",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": true,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 150
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    }
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 150
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": true,
+            "turboThreshold": 0,
+            "findNearestPointBy": "x",
+            "legendSymbol": "lineMarker",
+            "pointStart": 0,
+            "name": "Column 2"
+        }
+    ],
+    "plotOptions": {
+        "series": {
+            "animation": false
+        }
+    },
+    "data": {
+        "csv": "\"Column 1\";\"Column 2\"\n\" \";\" \"",
+        "googleSpreadsheetKey": false,
+        "googleSpreadsheetWorksheet": false
+    }
+}
