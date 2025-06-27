@@ -60,6 +60,7 @@
                     :headerHeight="headerHeight"
                     @step="updateActiveIndex"
                     :targetIndex="targetIndex"
+                    @last-slide-height="handleLastSlideHeight"
                 />
             </div>
 
@@ -78,12 +79,13 @@
                 {{ $t('story.date') }}
                 {{ config.dateModified }}
             </div>
+            <div class="footer-padding" v-if="footerPadding" :style="{ height: `calc(100dvh - ${lastSlideHeight + 260}px)` }"></div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, getCurrentInstance, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRoute, type RouteLocationNormalized } from 'vue-router';
 
 import MobileMenu from './mobile-menu.vue';
@@ -96,12 +98,21 @@ import { EventBus } from '../../event-bus';
 
 const route = useRoute();
 
+const footerPadding = computed(
+    () => !window.location.href.includes('index-ca-en.html') && !window.location.href.includes('index-ca-fr.html')
+);
+
 const config = ref<StoryRampConfig | undefined>(undefined);
 const loadStatus = ref('loading');
 const activeChapterIndex = ref(-1);
 const targetIndex = ref(-1);
 const headerHeight = ref(0);
 const lang = ref('en');
+const lastSlideHeight = ref(0);
+
+const handleLastSlideHeight = (height: number) => {
+    lastSlideHeight.value = height;
+};
 
 onMounted(() => {
     EventBus.on('scroll-to-slide', (params) => {
