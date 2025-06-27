@@ -1,7 +1,7 @@
 {
     "name": "ramp-storylines_demo-scenarios-pcar",
     "description": "A user-configurable story product featuring interactive maps, charts and dynamic multimedia content alongside text.",
-    "version": "3.5.1",
+    "version": "3.5.3",
     "private": false,
     "license": "MIT",
     "type": "module",

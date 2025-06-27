@@ -2,7 +2,7 @@
     <scrollama
         class="text-panel prose max-w-none mb-5 mx-1 py-5"
         :class="{ 'has-background': background }"
-        :style="{ color: config.textColour ?? '#000' }"
+        :style="{ color: config.textColour ?? '#000'}"
     >
         <component v-if="config.title" :is="config.titleTag || 'h2'" class="px-10 mb-0 chapter-title top-20">
             {{ config.title }}
