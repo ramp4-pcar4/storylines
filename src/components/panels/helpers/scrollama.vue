@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watchEffect } from 'vue';
 import scrollama from 'scrollama';
+import { offset } from 'highcharts';
 
 const emit = defineEmits(['step-progress', 'step-enter', 'step-exit']);
 
@@ -40,8 +41,8 @@ function getDynamicOffset(): number {
     const navbar = document.getElementById('h-navbar');
     if (!navbar) return 0.2;
     const navbarHeight = navbar.offsetHeight;
-    const offsetRatio = navbarHeight / window.innerHeight;
-    return offsetRatio + 0.07;
+    const offsetRatio = (navbarHeight + 64) / window.innerHeight;
+    return offsetRatio;
 }
 
 function setup() {

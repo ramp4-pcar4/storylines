@@ -60,7 +60,6 @@
                     :headerHeight="headerHeight"
                     @step="updateActiveIndex"
                     :targetIndex="targetIndex"
-                    @last-slide-height="handleLastSlideHeight"
                 />
             </div>
 
@@ -79,7 +78,7 @@
                 {{ $t('story.date') }}
                 {{ config.dateModified }}
             </div>
-            <div class="footer-padding" v-if="footerPadding" :style="{ height: `calc(100dvh - ${lastSlideHeight + 260}px)` }"></div>
+            <div class="footer-padding" v-if="footerPadding" :style="footerPaddingStyle"></div>
         </div>
     </div>
 </template>
@@ -102,6 +101,12 @@ const footerPadding = computed(
     () => !window.location.href.includes('index-ca-en.html') && !window.location.href.includes('index-ca-fr.html')
 );
 
+const footerPaddingStyle = computed(() => {
+    measure();
+    const h = `calc(100dvh - ${lastSlideHeight.value + extraHeight.value}px)`;
+    return { height: h };
+});
+
 const config = ref<StoryRampConfig | undefined>(undefined);
 const loadStatus = ref('loading');
 const activeChapterIndex = ref(-1);
@@ -109,12 +114,18 @@ const targetIndex = ref(-1);
 const headerHeight = ref(0);
 const lang = ref('en');
 const lastSlideHeight = ref(0);
+const extraHeight = ref(0);
 
-const handleLastSlideHeight = (height: number) => {
-    lastSlideHeight.value = height;
-};
+function measure(): void {
+    const nav = document.getElementById('h-navbar');
+    const header = document.getElementById('story-header');
+    extraHeight.value = nav ? nav.offsetHeight : 0; //horizontal navbar
+    extraHeight.value += header ? header.offsetHeight : 0; //header
+    extraHeight.value += 64 + 56 + 60; //bottom padding of story, context in footer, date modified
+}
 
 onMounted(() => {
+    window.addEventListener('resize', measure);
     EventBus.on('scroll-to-slide', (params) => {
         setTargetIndex(+params.slideIndex);
     });
@@ -138,6 +149,7 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+    measureNav();
     EventBus.off('scroll-to-slide', (params) => {
         setTargetIndex(+params.slideIndex);
     });
@@ -232,6 +244,11 @@ const updateActiveIndex = (idx: number): void => {
     const headerH = document.getElementById('story-header');
     if (headerH) {
         headerHeight.value = headerH.clientHeight;
+    }
+    const slides = document.querySelectorAll('.story-slide');
+    const lastSlide = slides[slides.length - 1] as HTMLElement;
+    if (lastSlide) {
+        lastSlideHeight.value = lastSlide.offsetHeight;
     }
 };
 </script>

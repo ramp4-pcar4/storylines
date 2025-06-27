@@ -1,5 +1,5 @@
 <template>
-    <div class="sticky z-10 grid-background overflow-hidden" style="top: 60px; height: 100vh">
+    <div class="sticky z-10 grid-background overflow-hidden" style="top: 60px;">
         <!-- Vue3 transition for switching between a slide with no background a slide with a background. -->
         <Transition name="fade" mode="out-in">
             <div v-if="state.newImage !== 'none'" class="w-full h-full">
