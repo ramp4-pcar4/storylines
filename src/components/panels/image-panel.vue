@@ -1,6 +1,6 @@
 <template>
     <div class="graphic self-start flex flex-col h-full align-middle pb-5 w-full">
-        <fullscreen :expandable="config.fullscreen" :type="config.type" :style="{minHeight: '50vh'}">
+        <fullscreen :expandable="config.fullscreen" :type="config.type">
             <img
                 ref="img"
                 :src="lazyLoad && slideIdx > 2 ? '' : state.src"

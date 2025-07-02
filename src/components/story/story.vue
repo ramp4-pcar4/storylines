@@ -60,10 +60,12 @@
                     :headerHeight="headerHeight"
                     @step="updateActiveIndex"
                     :targetIndex="targetIndex"
+                    @last-slide-height="handleLastSlideHeight"
                 />
             </div>
 
             <footer class="p-8 pt-2 text-right text-sm">
+                <div :style="{ height: `calc(100dvh - ${lastSlideHeight + 350}px)` }"></div>
                 Context:
                 <a class="text-blue-700 font-semibold" :href="config.contextLink" target="_NEW">{{
                     config.contextLabel
@@ -102,6 +104,11 @@ const activeChapterIndex = ref(-1);
 const targetIndex = ref(-1);
 const headerHeight = ref(0);
 const lang = ref('en');
+const lastSlideHeight = ref(0);
+
+const handleLastSlideHeight = (height: number) => {
+    lastSlideHeight.value = height;
+};
 
 onMounted(() => {
     EventBus.on('scroll-to-slide', (params) => {
