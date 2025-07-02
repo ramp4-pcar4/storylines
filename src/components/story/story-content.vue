@@ -44,6 +44,7 @@
                     :data-chapter-index="idx"
                     :id="`${idx}-${slide.title.toLowerCase().replaceAll(' ', '-')}`"
                     :name="`${idx}-${slide.title.toLowerCase().replaceAll(' ', '-')}`"
+                    :ref="idx === config.slides.length - 1 ? setLastSlideHeight : null"
                 >
                     <storylines-slide
                         :config="slide"
@@ -76,7 +77,7 @@ import StorylinesSlide from './slide.vue';
 import Scrollama from '@storylines/components/panels/helpers/scrollama.vue';
 
 const route = useRoute();
-const emit = defineEmits(['step']);
+const emit = defineEmits(['step', 'last-slide-height']);
 
 const props = defineProps({
     config: {
@@ -145,6 +146,12 @@ onMounted(() => {
     // as you scroll down.
     handleSlideChange(0);
 });
+
+const setLastSlideHeight = (element: HTMLElement | null) => {
+    if (element) {
+        emit('last-slide-height', element.offsetHeight);
+    }
+};
 
 // Determines whether the slide corresponding to the provided index
 const slideInRange = (index) => {
