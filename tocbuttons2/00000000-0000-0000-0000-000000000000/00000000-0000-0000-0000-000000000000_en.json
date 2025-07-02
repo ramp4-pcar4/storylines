@@ -693,96 +693,25 @@
                 }
             ]
         },
-        {
-            "title": "",
+                {
+            "title": "another chart slide",
             "panel": [
                 {
-                    "type": "slideshow",
-                    "items": [
-                        {
-                            "type": "text",
-                            "title": "hello",
-                            "content": "he;;p"
-                        }
-                    ],
-                    "userCreated": true
-                },
-                {
-                    "type": "text",
-                    "title": "",
-                    "content": ""
+                    "title": "Managing environmental impacts",
+                    "content": " er’s flow.",
+                    "type": "text"
                 }
-            ],
-            "includeInToc": true
+            ]
         },
-        {
-            "title": "",
+                {
+            "title": "another chart slide",
             "panel": [
                 {
-                    "type": "image",
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/small.jpg"
-                },
-                {
-                    "type": "text",
-                    "title": "",
-                    "content": ""
+                    "title": "Managing environmental impacts",
+                    "content": " er’s flow.",
+                    "type": "text"
                 }
-            ],
-            "includeInToc": true
-        },
-        {
-            "title": "",
-            "panel": [
-                {
-                    "type": "dynamic",
-                    "title": "hello",
-                    "content": "dynamic",
-                    "children": [
-                        {
-                            "id": "1",
-                            "panel": {
-                                "type": "text",
-                                "title": "",
-                                "content": ""
-                            }
-                        }
-                    ]
-                }
-            ],
-            "includeInToc": true
-        },
-        {
-            "title": "",
-            "panel": [
-                {
-                    "type": "chart",
-                    "name": "Chart 1",
-                    "src": "00000000-0000-0000-0000-000000000000/charts/en/Chart 1.json"
-                },
-                {
-                    "type": "text",
-                    "title": "",
-                    "content": ""
-                }
-            ],
-            "includeInToc": true
-        },
-        {
-            "title": "",
-            "panel": [
-                {
-                    "type": "video",
-                    "title": "file_example_MP4_480_1_5MG (online-video-cutter.com).mp4",
-                    "videoType": "local",
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/file_example_MP4_480_1_5MG (online-video-cutter.com).mp4"
-                },
-                {
-                    "type": "text",
-                    "title": "",
-                    "content": ""
-                }
-            ],
-            "includeInToc": true
+            ]
         }
     ],
     "tocOrientation": "vertical",
