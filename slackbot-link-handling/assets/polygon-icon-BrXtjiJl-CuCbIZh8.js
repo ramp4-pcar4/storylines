@@ -1,0 +1,1 @@
+import{fh as e,fo as r,fA as l,fr as t}from"./story-gmnD57Bm.js";import"./main-BISJlGz4.js";const n={},s={xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"};function a(f,o){return r(),l("svg",s,o[0]||(o[0]=[t("path",{d:"M0 0h24v24H0z",fill:"none"},null,-1),t("path",{d:"M3 6l6-3 6 3 6-3v12l-6 3-6-3-6 3z"},null,-1)]))}const c=e(n,[["render",a]]);export{c as default};
