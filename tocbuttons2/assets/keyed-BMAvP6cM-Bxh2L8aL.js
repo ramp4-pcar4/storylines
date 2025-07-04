@@ -1,0 +1,1 @@
+import{i3 as s,i4 as i,i2 as o}from"./story-D6dmjtEU.js";import{N as n}from"./ref-CeH0N1rX-6khmp4Lp.js";const m=s(class extends i{constructor(){super(...arguments),this.key=o}render(t,r){return this.key=t,r}update(t,[r,e]){return r!==this.key&&(n(t),this.key=r),e}});export{m as i};

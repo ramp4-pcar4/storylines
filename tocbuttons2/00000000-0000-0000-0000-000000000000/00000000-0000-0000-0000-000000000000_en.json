@@ -675,41 +675,16 @@
         },
         {
             "title": "another chart slide",
+            "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
             "panel": [
                 {
-                    "title": "Managing environmental impacts",
-                    "content": "the environmena is responsible for the assessment of proposed in-situ developments.\n\nGovernments at all levels are committed to balancing economic benefits and environmental stewardship from the development of this sector. Oil sands projects undergo significant environmental assessments before they are approved and they are subject to extensive environmental monitoring throughout the project’s life. Please visit the **[Canada-Alberta Oil Sands Monitoring Program](https://www.canada.ca/en/environment-climate-change/services/oil-sands-monitoring.html)** for more information.\n\nWhile emissions of pollutants have risen from this sector as it has grown, the oil sands industry has been very successful in reducing its emissions per barrel of oil produced.\n\nOil sands surface mining facilities in Alberta take much of their water from the Athabasca River. The provincial government sets limits on how much water can be drawn, based on the season, through the **[Surface Water Quantity Management Framework for the Lower Athabasca River](https://open.alberta.ca/publications/9781460121733)**, which insures that annual withdrawals never exceed 3% of the river’s flow.",
-                    "type": "text"
-                }
-            ]
-        },
-        {
-            "title": "another chart slide",
-            "panel": [
+                    "type": "chart",
+                    "src": "00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json",
+                    "caption": "Caption for chart"
+                },
                 {
-                    "title": "Managing environmental impacts",
-                    "content": " er’s flow.",
-                    "type": "text"
-                }
-            ]
-        },
-                {
-            "title": "another chart slide",
-            "panel": [
-                {
-                    "title": "Managing environmental impacts",
-                    "content": " er’s flow.",
-                    "type": "text"
-                }
-            ]
-        },
-                {
-            "title": "another chart slide",
-            "panel": [
-                {
-                    "title": "Managing environmental impacts",
-                    "content": " er’s flow.",
-                    "type": "text"
+                    "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
+                    "type": "image"
                 }
             ]
         }
