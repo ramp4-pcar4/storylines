@@ -790,7 +790,7 @@
                             }
                         ]
                     },
-                    "minItems": 1
+                    "minItems": 0
                 },
                 "loop": {
                     "type": "boolean",
