@@ -1,0 +1,9 @@
+.textPanelOutline {
+    border: 2px solid black;
+}
+
+.right-align {
+    margin-left: auto !important;
+    margin-right: 10% !important;
+    max-width: 600px;
+}
