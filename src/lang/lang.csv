@@ -17,6 +17,9 @@ timeslider.play,Play,1,Lire,0
 timeslider.pause,Pause,1,Pause,0
 fullscreen.activate,Enter Fullscreen,1,Entrer en plein écran,0
 fullscreen.deactivate,Exit Fullscreen,1,Sortie plein écran,0
+gallery.next,Next Slide,1,Diapositive suivante,0
+gallery.previous,Previous Slide,1,Diapositive précédente,0
+gallery.close,Close,1,Fermer,0
 dynamic.back,Back,1,Retour,0
 video.transcript,Transcript,1,Transcription,0
 audio.transcript.show,View Transcript,1,Afficher la transcription,0
