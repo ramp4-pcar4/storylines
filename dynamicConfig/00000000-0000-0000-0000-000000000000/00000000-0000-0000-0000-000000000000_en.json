@@ -687,19 +687,7 @@
                     "type": "image"
                 }
             ]
-        },
-        {
-  "title": "slide here",
-  "panel": [
-    {
-      "type": "dynamic",
-      "title": "",
-      "content": "",
-      "children": []
-    }
-  ],
-  "includeInToc": true
-}
+        }
     ],
     "tocOrientation": "horizontal",
     "stylesheets": ["00000000-0000-0000-0000-000000000000/styles/main.css"],
