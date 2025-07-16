@@ -132,7 +132,7 @@
                     "items": {
                         "$ref": "#/$defs/dynamicChildItem"
                     },
-                    "minItems": 1
+                    "minItems": 0
                 },
                 "type": {
                     "type": "string",
@@ -206,7 +206,7 @@
                     "items": {
                         "$ref": "#/$defs/dynamicChildItem"
                     },
-                    "minItems": 1
+                    "minItems": 0
                 },
                 "images": {
                     "type": "array",
