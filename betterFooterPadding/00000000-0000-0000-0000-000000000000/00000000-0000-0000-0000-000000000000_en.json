@@ -1,0 +1,67 @@
+{
+    "title": "Test StoryRAMP",
+    "introSlide": {
+        "logo": {
+            "src": "00000000-0000-0000-0000-000000000000/assets/en/logo.svg",
+            "altText": "Logo"
+        },
+        "title": "Test StoryRAMP",
+        "subtitle": "Where all your wildest dreams can come true.",
+        "buttonColour": "#fff",
+        "titleColour": "#fff",
+        "subtitleColour": "#fff",
+        "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/bg.jpg"
+    },
+    "slides": [
+        {
+            "title": "",
+            "panel": [
+                {
+                    "type": "text",
+                    "title": "",
+                    "content": "e\ne"
+                }
+            ],
+            "includeInToc": true
+        },
+                {
+            "title": "",
+            "panel": [
+                {
+                    "type": "text",
+                    "title": "",
+                    "content": "e\ne"
+                }
+            ],
+            "includeInToc": true
+        },
+                {
+            "title": "",
+            "panel": [
+                {
+                    "type": "text",
+                    "title": "",
+                    "content": "e\ne"
+                }
+            ],
+            "includeInToc": true
+        }
+    ],
+    "tocOrientation": "horizontal",
+    "stylesheets": ["00000000-0000-0000-0000-000000000000/styles/main.css"],
+    "contextLink": "https://www.canada.ca/en/environment-climate-change/services/national-pollutant-release-inventory/tools-resources-data/exploredata.html",
+    "contextLabel": "Explore National Pollutant Release Inventory data",
+    "lang": "en",
+    "lazyLoad": false,
+    "breadcrumbs": [
+        {
+            "title": "Environment and natural resources",
+            "href": "https://www.canada.ca/en/services/environment.html"
+        },
+        {
+            "title": "Cumulative effects",
+            "href": "https://www.canada.ca/en/services/environment/cumulative-effect.html"
+        }
+    ],
+    "dateModified": "2024-09-09"
+}
