@@ -39,7 +39,7 @@ watchEffect(() => {
 
 function getDynamicOffset(): number {
     const navbar = document.getElementById('h-navbar');
-    if (!navbar) return 0.2;
+    if (!navbar) return 64 / window.innerHeight; 
     const navbarHeight = navbar.offsetHeight;
     const offsetRatio = (navbarHeight + 64) / window.innerHeight;
     return offsetRatio;
