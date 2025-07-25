@@ -9,7 +9,7 @@
     >
         <li v-if="introExists && returnToTop">
             <a
-                class="flex py-1 px-3"
+                class="flex items-center py-1 px-2 mx-1 w-full"
                 :class="{
                     'items-center mx-1 cursor-pointer px-2 ': tocType !== 'mobile',
                     'px-3': tocType === 'mobile'
