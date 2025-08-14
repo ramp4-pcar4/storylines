@@ -100,7 +100,7 @@ const activeConfig = ref<BasePanel>(defaultPanel.panel);
 const activeIdx = ref(defaultPanel.id);
 const isMobile = ref(false);
 
-const md = new MarkdownIt({ html: true });
+const md = new MarkdownIt({ html: true, breaks: true });
 
 const key = getCurrentInstance()?.vnode.key as string;
 
