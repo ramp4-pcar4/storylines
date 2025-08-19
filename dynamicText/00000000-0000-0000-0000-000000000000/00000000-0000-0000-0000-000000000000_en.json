@@ -687,34 +687,6 @@
                     "type": "image"
                 }
             ]
-        },
-        {
-            "title": "",
-            "panel": [
-                {
-                    "type": "dynamic",
-                    "title": "",
-                    "content": "e\ne\ne",
-                    "children": []
-                }
-            ],
-            "includeInToc": true
-        },
-        {
-            "title": "",
-            "panel": [
-                {
-                    "type": "text",
-                    "title": "",
-                    "content": "e\ne\ne"
-                },
-                {
-                    "type": "text",
-                    "title": "",
-                    "content": ""
-                }
-            ],
-            "includeInToc": true
         }
     ],
     "tocOrientation": "vertical",
