@@ -292,6 +292,11 @@ $font-list: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     .prose a:not([panel]):not([target='_self'])::after {
         content: url('../../assets/popout.svg');
+        display: inline-block;
+        margin-left: 0.2em;
+        height: 1em;
+        width: 1em;
+        text-align: center;
     }
 
     .w-mobile-full {

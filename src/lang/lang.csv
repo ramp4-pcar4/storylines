@@ -10,6 +10,7 @@ scrollguard.desc,Use ctrl + scroll to zoom the map,1,Utilisez les touches Ctrl e
 story.date,Date modified:,1,Date de modification:,1
 story.error,An error occurred while loading this Storylines product. See developer console for more information.,1,Une erreur est survenue pendant le chargement ce synopsis produit. Voir la console du promoteur pour obtenir de plus amples renseignements.,1
 text.showMore,Show More,1,Montrer davantage,1
+text.newTab,opens in a new tab,1,s'ouvre dans un nouvel onglet,0
 image.fullscreen,Full Screen,1,Plein Écran,1
 timeslider.expand,Expand,1,Développer,1
 timeslider.minimize,Minimize,1,Réduire,1

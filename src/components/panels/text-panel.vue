@@ -40,10 +40,6 @@ onMounted((): void => {
         .render(props.config.content)
         .replace(/<table/g, '<div class="table-container"><table')
         .replace(/<\/table>/g, '</table></div>');
-
-    document
-        .querySelectorAll('.storyramp-app a:not([target])')
-        .forEach((el: Element) => ((el as HTMLAnchorElement).target = '_blank'));
 });
 </script>
 
