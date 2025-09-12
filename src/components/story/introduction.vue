@@ -44,7 +44,7 @@
             </button>
 
             <router-link
-                :to="{ hash: '#story' }"
+                :to="{ hash: '#story', query: route.query }"
                 class="inline-block mt-10 scroll-arrow"
                 :title="$t('intro.scrollToStory')"
                 target
@@ -80,7 +80,10 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { reactive, onMounted } from 'vue';
-import { ConfigFileStructure, Intro } from '@storylines/definitions';
+import { useRoute } from 'vue-router';
+import type { ConfigFileStructure, Intro } from '@storylines/definitions';
+
+const route = useRoute();
 
 const props = defineProps({
     config: {

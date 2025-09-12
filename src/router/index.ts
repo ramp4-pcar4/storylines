@@ -1,5 +1,4 @@
-//import StoryV from '@storylines/components/story/story.vue';
-import { createRouter, createWebHashHistory, type RouteLocationNormalized } from 'vue-router';
+import { createRouter, createWebHistory, type RouteLocation, type RouteLocationNormalized } from 'vue-router';
 import { EventBus } from '../event-bus';
 const routes = [
     {
@@ -18,14 +17,13 @@ const routes = [
 
 const router = createRouter({
     routes: routes,
-    // mode: 'history', // TODO: uncomment to change to history mode for nicer URLs (eliminating middle hash) see #100
-    history: createWebHashHistory(),
+    history: createWebHistory('' + import.meta.env.BASE_URL),
     scrollBehavior: function (to: RouteLocationNormalized, from) {
         if (to.hash) {
             EventBus.emit('scroll-to-slide', { slideIndex: to.hash.split('-')[0].split('#').at(-1) });
 
             // Delay is needed to allow slides to force load when lazy loading is enabled
-            const delay = from.href ? 100 : 1000; // routing upon a page reload needs more time
+            const delay = from.fullPath ? 100 : 1000; // routing upon a page reload needs more time
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve({
@@ -40,5 +38,14 @@ const router = createRouter({
         }
     }
 });
+
+// redirects old hash URLs to the new URLs
+router.beforeEach((to, from, next) => {
+    if (to.fullPath.startsWith('/#/')) {
+        next({ path: to.fullPath.substring(2), replace: true});
+    } else {
+        next();
+    }
+})
 
 export default router;
