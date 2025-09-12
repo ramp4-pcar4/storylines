@@ -40,7 +40,7 @@
         </span>
 
         <router-link
-            :to="{ hash: `#${getSlideId(tocItem.slideIndex)}` }"
+            :to="{ hash: `#${getSlideId(tocItem.slideIndex)}`, query: route.query }"
             class="flex items-center px-2 py-1 mx-1"
             :class="{ 'flex-grow min-w-0': parentItem, 'pb-2': parentItem && !verticalToc }"
             target
@@ -81,10 +81,12 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
+import { useRoute } from 'vue-router';
 import type { MenuItem, Slide } from '@storylines/definitions';
 
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
+const route = useRoute();
 
 const props = defineProps({
     tocItem: {
@@ -131,7 +133,7 @@ const scrollToChapter = (id: string): void => {
         setTimeout(() => {
             const navbar = document.getElementById('h-navbar');
             const header = document.getElementById('story-header');
-            const offset = navbar ? navbar.offsetHeight + header.offsetHeight : header.offsetHeight;
+            const offset = navbar ? navbar.offsetHeight + header!.offsetHeight : header!.offsetHeight;
             const rect = el.getBoundingClientRect();
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 

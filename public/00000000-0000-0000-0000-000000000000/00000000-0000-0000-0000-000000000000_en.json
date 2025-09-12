@@ -2,7 +2,7 @@
     "title": "Test StoryRAMP",
     "introSlide": {
         "logo": {
-            "src": "00000000-0000-0000-0000-000000000000/assets/en/logo.svg",
+            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/logo.svg",
             "altText": "Logo"
         },
         "title": "Test StoryRAMP",
@@ -10,20 +10,20 @@
         "buttonColour": "#fff",
         "titleColour": "#fff",
         "subtitleColour": "#fff",
-        "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/bg.jpg"
+        "backgroundImage": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/bg.jpg"
     },
     "slides": [
         {
             "title": "Overview",
-            "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
+            "backgroundImage": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
             "panel": [
                 {
                     "title": "Overview",
-                    "content": "<Gallery caption='I am a caption for the above gallery.'><GalleryItem credit='Credit: Rick Astley' src='00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg' alt='An image displaying a flowchart for Canadas National Pollutant Release Inventory' /><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg' /></Gallery>**Oil Sands Extraction** is part of the National Pollutant Release Inventory's (NPRI) Sector Overview series. This sector overview explores NPRI substances released, disposed, and transferred by this industry. It also summarizes what steps facilities in this sector take to mitigate their environmental impacts. <AudioPlayer src='https://www.w3schools.com/html/horse.ogg' title='An audio clip with no transcript.'></AudioPlayer> <AudioPlayer src='00000000-0000-0000-0000-000000000000/assets/en/horse.ogv' title='An audio clip with a transcript.' transcript='This audio clip has a transcript. Transcripts support <a href=\"https://google.ca\">HTML</a> and *Markdown*.<br /><br />Curabitur at felis non libero suscipit fermentum. Duis volutpat, ante et scelerisque luctus, sem nulla placerat leo, at aliquet libero justo id nulla. Integer at dui nec magna posuere fringilla. Nunc euismod bibendum augue. Cras nec ligula velit. Donec in laoreet leo.'></AudioPlayer> Businesses, institutions and other facilities across Canada must report their releases, transfers and disposals of pollutants to air, water and land annually to the Government of Canada's NPRI. The information collected is public, helps governments set environmental priorities and monitor environmental performance, and provides Canadians with an opportunity to learn about pollution in their surroundings.",
+                    "content": "<Gallery caption='I am a caption for the above gallery.'><GalleryItem credit='Credit: Rick Astley' src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg' alt='An image displaying a flowchart for Canadas National Pollutant Release Inventory' /><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg' /></Gallery>**Oil Sands Extraction** is part of the National Pollutant Release Inventory's (NPRI) Sector Overview series. This sector overview explores NPRI substances released, disposed, and transferred by this industry. It also summarizes what steps facilities in this sector take to mitigate their environmental impacts. <AudioPlayer src='https://www.w3schools.com/html/horse.ogg' title='An audio clip with no transcript.'></AudioPlayer> <AudioPlayer src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/horse.ogv' title='An audio clip with a transcript.' transcript='This audio clip has a transcript. Transcripts support <a href=\"https://google.ca\">HTML</a> and *Markdown*.<br /><br />Curabitur at felis non libero suscipit fermentum. Duis volutpat, ante et scelerisque luctus, sem nulla placerat leo, at aliquet libero justo id nulla. Integer at dui nec magna posuere fringilla. Nunc euismod bibendum augue. Cras nec ligula velit. Donec in laoreet leo.'></AudioPlayer> Businesses, institutions and other facilities across Canada must report their releases, transfers and disposals of pollutants to air, water and land annually to the Government of Canada's NPRI. The information collected is public, helps governments set environmental priorities and monitor environmental performance, and provides Canadians with an opportunity to learn about pollution in their surroundings.",
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/NPRIpictogramme-2016data-EN__1553797637582__w1430.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/NPRIpictogramme-2016data-EN__1553797637582__w1430.jpg",
                     "type": "image",
                     "caption": "This is a caption for the image."
                 }
@@ -37,12 +37,12 @@
                     "title": "Interactive Image test",
                     "defaultImage": {
                         "id": "default",
-                        "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg"
+                        "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg"
                     },
                     "images": [
                         {
                             "id": "image-1",
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg"
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg"
                         }
                     ],
                     "panels": [
@@ -50,7 +50,7 @@
                             "id": "panel-1",
                             "panel": {
                                 "title": "Hello World",
-                                "content": "<Gallery maxWidth='30%' caption='I am a gallery that only has one image' maxPerRow=3><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /></Gallery> I am a text panel. I am a child of the dynamic panel config. ![](00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg)",
+                                "content": "<Gallery maxWidth='30%' caption='I am a gallery that only has one image' maxPerRow=3><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /></Gallery> I am a text panel. I am a child of the dynamic panel config. ![]({BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg)",
                                 "type": "text",
                                 "cssClasses": "textPanelOutline"
                             }
@@ -58,7 +58,7 @@
                         {
                             "id": "panel-2",
                             "panel": {
-                                "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+                                "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
                                 "type": "image"
                             }
                         },
@@ -96,7 +96,7 @@
             "title": "Community Directory PowerBI Map",
             "panel": [
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/CommunityDirectory.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/CommunityDirectory.json",
                     "type": "map",
                     "teleportGrid": "right",
                     "scrollguard": true
@@ -108,7 +108,7 @@
             "title": "Interactive Map",
             "panel": [
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
                     "type": "interactive-map",
                     "scrollguard": true,
                     "title": "Map Title Test",
@@ -116,7 +116,7 @@
                         {
                             "title": "Point of Interest A",
                             "text": "This is a test point of interest. This is *a test* to make sure **markdown** works. Below is a link to Google.<br /><br /><a href='https://google.ca/'>Link to Google</a>",
-                            "image": "00000000-0000-0000-0000-000000000000/assets/en/NPRIpictogramme-2016data-EN__1553797637582__w1430.jpg",
+                            "image": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/NPRIpictogramme-2016data-EN__1553797637582__w1430.jpg",
                             "altText": "An image.",
                             "target": {
                                 "layerId": "OilSandsFacilityLocations2019",
@@ -135,14 +135,14 @@
                             "title": "Point of Interest C",
                             "text": "This is a third point of interest. This one includes an image, but also has a ton of text. Maecenas quis ipsum eleifend, finibus erat ut, finibus eros. Pellentesque facilisis iaculis nunc ut luctus. Curabitur luctus pulvinar nulla, id viverra orci viverra id. Nulla eget eleifend est. Maecenas quis ipsum eleifend, finibus erat ut, finibus eros. Pellentesque facilisis iaculis nunc ut luctus. Curabitur luctus pulvinar nulla, id viverra orci viverra id. Nulla eget eleifend est. Maecenas quis ipsum eleifend, finibus erat ut, finibus eros. Pellentesque facilisis iaculis nunc ut luctus. Curabitur luctus pulvinar nulla, id viverra orci viverra id. Nulla eget eleifend est. Maecenas quis ipsum eleifend, finibus erat ut, finibus eros. Pellentesque facilisis iaculis nunc ut luctus. Curabitur luctus pulvinar nulla, id viverra orci viverra id. Nulla eget eleifend est.",
                             "altText": "Another image.",
-                            "image": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+                            "image": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
                             "target": {
                                 "layerId": "OilSandsFacilityLocations2019",
                                 "oid": 5
                             }
                         },
                         {
-                            "image": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+                            "image": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
                             "altText": "A third image.",
                             "target": {
                                 "layerId": "OilSandsFacilityLocations2019",
@@ -158,7 +158,7 @@
             "title": "Scrolly Map Tests",
             "panel": [
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/WQMS-map-6.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/WQMS-map-6.json",
                     "type": "interactive-map",
                     "scrollguard": true,
                     "title": "Scrolly Map Tests",
@@ -200,26 +200,26 @@
                     "type": "slideshow",
                     "items": [
                         {
-                            "config": "00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
+                            "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
                             "type": "map",
                             "scrollguard": true,
                             "caption": "I am a map with a caption."
                         },
                         {
-                            "config": "00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
+                            "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
                             "type": "map",
                             "scrollguard": true,
                             "title": "I am a map with a title."
                         },
                         {
-                            "config": "00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
+                            "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
                             "type": "map",
                             "scrollguard": true,
                             "title": "I have a title...",
                             "caption": "... and a caption."
                         },
                         {
-                            "config": "00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
+                            "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/test-ramp4.json",
                             "type": "map",
                             "scrollguard": true
                         }
@@ -235,21 +235,21 @@
         },
         {
             "title": "Dynamic Panel Test",
-            "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
+            "backgroundImage": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
             "backgroundAltText": "Background image for dynamic panel",
             "panel": [
                 {
                     "title": "This Slide Is Dynamic!",
                     "type": "dynamic",
                     "reversed": true,
-                    "content": "You can click on one of the following links to change the right panel.\n\n- <a panel='panel-1'>Text Panel</a>\n- <a panel='panel-2'>Image Panel</a>\n- <a panel='panel-3'>Charts Panel</a>\n- <a panel='panel-4'>Map Panel</a>\n- <a panel='panel-5'>Longer text section with table</a>\n- <a href='#/en/00000000-0000-0000-0000-000000000000#2-oil-sands-deposits' target='_self'>Self target link</a>\n- <a panel='panel-6'>Video externally hosted</a>\n- <a panel='panel-7'>Video locally hosted</a>\n\nFun stuff.",
+                    "content": "You can click on one of the following links to change the right panel.\n\n- <a panel='panel-1'>Text Panel</a>\n- <a panel='panel-2'>Image Panel</a>\n- <a panel='panel-3'>Charts Panel</a>\n- <a panel='panel-4'>Map Panel</a>\n- <a panel='panel-5'>Longer text section with table</a>\n- <a href='#/en/{BASE_URL}00000000-0000-0000-0000-000000000000#2-oil-sands-deposits' target='_self'>Self target link</a>\n- <a panel='panel-6'>Video externally hosted</a>\n- <a panel='panel-7'>Video locally hosted</a>\n\nFun stuff.",
                     "contentWidth": "60%",
                     "children": [
                         {
                             "id": "panel-1",
                             "panel": {
                                 "title": "Hello World",
-                                "content": "I am a text panel. I am a child of the dynamic panel config. ![](00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg)",
+                                "content": "I am a text panel. I am a child of the dynamic panel config. ![]({BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg)",
                                 "type": "text",
                                 "cssClasses": "textPanelOutline"
                             }
@@ -257,7 +257,7 @@
                         {
                             "id": "panel-2",
                             "panel": {
-                                "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+                                "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
                                 "type": "image"
                             }
                         },
@@ -268,12 +268,12 @@
                                 "items": [
                                     {
                                         "type": "chart",
-                                        "src": "00000000-0000-0000-0000-000000000000/charts/en/chartConfig.json",
+                                        "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/chartConfig.json",
                                         "caption": "caption for a chart"
                                     },
                                     {
                                         "type": "chart",
-                                        "src": "00000000-0000-0000-0000-000000000000/charts/en/1 Mount royal.csv",
+                                        "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/1 Mount royal.csv",
                                         "options": {
                                             "title": "Selenium releases and disposals in 2019",
                                             "subtitle": "",
@@ -287,7 +287,7 @@
                         {
                             "id": "panel-4",
                             "panel": {
-                                "config": "00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
+                                "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
                                 "type": "map",
                                 "scrollguard": true
                             }
@@ -307,7 +307,7 @@
                                 "type": "video",
                                 "title": "Overtime job",
                                 "videoType": "external",
-                                "caption": "00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4.vtt",
+                                "caption": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4.vtt",
                                 "src": "https://wet-boew.github.io/wet-boew-attachments/videos/video1-en.mp4",
                                 "autoplay": true
                             }
@@ -318,9 +318,9 @@
                                 "type": "video",
                                 "title": "Overtime job",
                                 "videoType": "local",
-                                "src": "00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4",
-                                "caption": "00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4.vtt",
-                                "transcript": "00000000-0000-0000-0000-000000000000/assets/en/cpts-lg-en.html"
+                                "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4",
+                                "caption": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4.vtt",
+                                "transcript": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/cpts-lg-en.html"
                             }
                         }
                     ]
@@ -353,9 +353,9 @@
                     "type": "video",
                     "title": "Overtime job",
                     "videoType": "local",
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4",
-                    "caption": "00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4.vtt",
-                    "transcript": "00000000-0000-0000-0000-000000000000/assets/en/cpts-lg-en.html",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4",
+                    "caption": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/video1-en.mp4.vtt",
+                    "transcript": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/cpts-lg-en.html",
                     "width": "85%",
                     "autoplay": true
                 }
@@ -371,7 +371,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/OilSandsDeposits.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/OilSandsDeposits.json",
                     "type": "map",
                     "scrollguard": true
                 }
@@ -387,7 +387,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
                     "type": "image",
                     "fullscreen": false
                 }
@@ -395,7 +395,7 @@
         },
         {
             "title": "In-situ extraction",
-            "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+            "backgroundImage": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
 
             "panel": [
                 {
@@ -404,7 +404,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/Slide 3 - mine vs insitu.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/Slide 3 - mine vs insitu.jpg",
                     "type": "image"
                 }
             ]
@@ -418,7 +418,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
                     "type": "map",
                     "title": "Map Title Test"
                 }
@@ -435,31 +435,31 @@
                 {
                     "items": [
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/1_AuroraNorth_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/1_AuroraNorth_RelDisp.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/2_FortHills_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/2_FortHills_RelDisp.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/3_Horizon_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/3_Horizon_RelDisp.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/4_Kearl_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/4_Kearl_RelDisp.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/5_MuskegJackpine_R5_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/5_MuskegJackpine_R5_RelDisp.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/6_Suncor_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/6_Suncor_RelDisp.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/substances/7_Syncrude_RelDisp.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/substances/7_Syncrude_RelDisp.PNG",
                             "type": "image"
                         }
                     ],
@@ -479,7 +479,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
                     "type": "map"
                 }
             ]
@@ -493,7 +493,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/slide 6 - mining trends.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/slide 6 - mining trends.jpg",
                     "type": "image"
                 }
             ],
@@ -503,11 +503,11 @@
             "title": "Reported mine tailings from oil sands surface mining facilities",
             "panel": [
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/tailings/AuroraNorth_Tailings.PNG",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/tailings/AuroraNorth_Tailings.PNG",
                     "type": "image"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/tailings/FortHills_Tailings.PNG",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/tailings/FortHills_Tailings.PNG",
                     "type": "image"
                 }
             ]
@@ -521,7 +521,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
                     "type": "map"
                 }
             ],
@@ -536,7 +536,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/TailingsfromMiningFacilities2010to2019(timeslider).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/TailingsfromMiningFacilities2010to2019(timeslider).json",
                     "timeSlider": {
                         "range": [2010, 2019],
                         "start": [2010, 2010],
@@ -560,7 +560,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/Slide 10 - SAGD vs CSS.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/Slide 10 - SAGD vs CSS.jpg",
                     "type": "image"
                 }
             ],
@@ -575,7 +575,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasestoAirbyInSituFacilitiesforAllSubstancesin2019.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasestoAirbyInSituFacilitiesforAllSubstancesin2019.json",
                     "type": "map"
                 }
             ],
@@ -594,12 +594,12 @@
                     "items": [
                         {
                             "type": "chart",
-                            "src": "00000000-0000-0000-0000-000000000000/charts/en/chartConfig.json",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/chartConfig.json",
                             "caption": "Caption for first chart"
                         },
                         {
                             "type": "chart",
-                            "src": "00000000-0000-0000-0000-000000000000/charts/en/Total releases of ethylene glycol for 2019, by province_en.csv",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/Total releases of ethylene glycol for 2019, by province_en.csv",
                             "options": {
                                 "title": "Figure 2: Total releases of ethylene glycol for 2019, by province",
                                 "xAxisLabel": "Quantity (tonnes)",
@@ -610,7 +610,7 @@
                         },
                         {
                             "type": "chart",
-                            "src": "00000000-0000-0000-0000-000000000000/charts/en/EG_releases_2019_en.csv",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/EG_releases_2019_en.csv",
                             "options": {
                                 "title": "Figure 1: Percentage of total ethylene glycol releases for 2019, by sector",
                                 "subtitle": "",
@@ -636,7 +636,7 @@
                     "items": [
                         {
                             "type": "chart",
-                            "src": "00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json"
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json"
                         },
                         {
                             "title": "NPRI data",
@@ -645,12 +645,12 @@
                             "customStyles": "border: 2px solid black;"
                         },
                         {
-                            "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
+                            "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
                             "type": "map",
                             "scrollguard": true
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/en/Top10SubstancesTailings2019.png",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/Top10SubstancesTailings2019.png",
                             "type": "image"
                         }
                     ]
@@ -667,7 +667,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
                     "type": "image"
                 }
             ],
@@ -675,22 +675,22 @@
         },
         {
             "title": "another chart slide",
-            "backgroundImage": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
+            "backgroundImage": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg",
             "panel": [
                 {
                     "type": "chart",
-                    "src": "00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json",
                     "caption": "Caption for chart"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg",
                     "type": "image"
                 }
             ]
         }
     ],
     "tocOrientation": "vertical",
-    "stylesheets": ["00000000-0000-0000-0000-000000000000/styles/main.css"],
+    "stylesheets": ["{BASE_URL}00000000-0000-0000-0000-000000000000/styles/main.css"],
     "contextLink": "https://www.canada.ca/en/environment-climate-change/services/national-pollutant-release-inventory/tools-resources-data/exploredata.html",
     "contextLabel": "Explore National Pollutant Release Inventory data",
     "lang": "en",

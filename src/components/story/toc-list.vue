@@ -70,7 +70,7 @@
             </a>
 
             <router-link
-                :to="{ hash: '#intro' }"
+                :to="{ hash: '#intro', query: route.query }"
                 class="flex py-1"
                 :class="{ 'items-center mx-1 px-2': tocType !== 'mobile', 'px-3': tocType === 'mobile' }"
                 target
@@ -222,8 +222,11 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { computed, ref, watch, onBeforeUnmount, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import type { MenuItem, Slide } from '@storylines/definitions';
 import TocItem from '@storylines/components/panels/helpers/toc-item.vue';
+
+const route = useRoute();
 
 const props = defineProps({
     activeChapterIndex: {

@@ -2,6 +2,7 @@ name: Install and build
 
 on:
     workflow_call:
+    workflow_dispatch:
 
 jobs:
     install-build:
@@ -42,6 +43,8 @@ jobs:
 
             - name: Install and build
               run: |
+                  BRANCH_NAME="${{ github.head_ref || github.ref_name }}"
+                  export BASE_URL="/storylines/${BRANCH_NAME}/"
                   npm ci
                   npm run build
 
