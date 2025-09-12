@@ -11,5 +11,9 @@ declare global {
         }
     }
 
+    interface ImportMeta {
+        env: any;
+    }
+
     const RAMP: any;
 }

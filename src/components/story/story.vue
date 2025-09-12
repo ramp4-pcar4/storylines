@@ -27,7 +27,7 @@
                         :active-chapter-index="activeChapterIndex"
                         :return-to-top="config.returnTop ?? true"
                         :customToc="config.tableOfContents"
-                        :slides="config.slides"
+                        :slides="config.slides as Slide[]"
                         @scroll-to-slide="setTargetIndex"
                         :lang="lang"
                     />
@@ -84,18 +84,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRoute, type RouteLocationNormalized } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 import MobileMenu from './mobile-menu.vue';
 import StoryContent from '@storylines/components/story/story-content.vue';
 import Intro from '@storylines/components/story/introduction.vue';
 
-import type { StoryRampConfig } from '@storylines/definitions';
+import type { StoryRampConfig, Slide } from '@storylines/definitions';
 import { VueSpinnerOval } from 'vue3-spinners';
 import { EventBus } from '../../event-bus';
 
 const route = useRoute();
+
+const { locale } = useI18n();
 
 const footerPadding = computed(
     () => !window.location.href.includes('index-ca-en.html') && !window.location.href.includes('index-ca-fr.html')
@@ -126,12 +129,16 @@ function measure(): void {
 
 onMounted(() => {
     window.addEventListener('resize', measure);
-    EventBus.on('scroll-to-slide', (params) => {
+    EventBus.on('scroll-to-slide', (params: any) => {
         setTargetIndex(+params.slideIndex);
     });
-    const uid = route.params.uid as string;
-    lang.value = (route.params.lang as string) ? (route.params.lang as string) : 'en';
-    if (uid) {
+    let uid = route.params.uid as string;
+    lang.value = route.params.lang as string;
+    if (uid && !uid.includes('.html')) {
+        fetchConfig(uid, lang.value || 'en');
+    } else if (route.query.uid && route.query.lang) {
+        uid = route.query.uid as string;
+        lang.value = route.query.lang as string;
         fetchConfig(uid, lang.value);
     } else {
         console.error(`Please supply the language and id URL params in the form of /[lang]/[uid].`);
@@ -142,15 +149,13 @@ onMounted(() => {
     // set page lang
     const html = document.documentElement; // returns the html tag
     html.setAttribute('lang', lang.value);
-    const instance = getCurrentInstance();
-    if (instance?.proxy?.$i18n) {
-        instance.proxy.$i18n.locale = lang.value;
-    }
+    locale.value = lang.value;
 });
 
 onBeforeUnmount(() => {
-    measureNav();
-    EventBus.off('scroll-to-slide', (params) => {
+    // TODO: was this supposed to be measure() and why
+    //measureNav();
+    EventBus.off('scroll-to-slide', (params: any) => {
         setTargetIndex(+params.slideIndex);
     });
 });
@@ -160,10 +165,7 @@ onBeforeUnmount(() => {
 const beforeRouteUpdate = (to: RouteLocationNormalized, from: RouteLocationNormalized, next: () => void): void => {
     const uid = to.params.uid as string;
     lang.value = to.params.lang as string;
-    const instance = getCurrentInstance();
-    if (instance?.proxy?.$i18n) {
-        instance.proxy.$i18n.locale = lang.value;
-    }
+    locale.value = lang.value;
     fetchConfig(uid, lang.value);
     next();
 };
@@ -181,7 +183,8 @@ const scrollToTop = () => {
 };
 
 const fetchConfig = (uid: string, lang: string): void => {
-    fetch(`${uid}/${uid}_${lang}.json`)
+    // import.meta.en.BASE_URL is the base url set for the vite build, defaults to '/'
+    fetch(import.meta.env.BASE_URL + `${uid}/${uid}_${lang}.json`)
         .then((res) => {
             res.json()
                 .then((configs: StoryRampConfig) => {
