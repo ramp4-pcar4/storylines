@@ -55,7 +55,7 @@
                             toggle: 'mouseenter focus click'
                         }"
                     >
-                        <svg class="icon icon-arrowLeft" viewBox="0 0 24 24" width="24px" height="24px">
+                        <svg class="gallery-icon icon-arrowLeft" viewBox="0 0 24 24" width="24px" height="24px">
                             <path d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"></path>
                         </svg>
@@ -82,7 +82,7 @@
                             toggle: 'mouseenter focus click'
                         }"
                     >
-                        <svg class="icon icon-arrowRight" viewBox="0 0 24 24" width="24px" height="24px">
+                        <svg class="gallery-icon icon-arrowRight" viewBox="0 0 24 24" width="24px" height="24px">
                             <path d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"></path>
                         </svg>
