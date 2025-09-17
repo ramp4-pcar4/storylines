@@ -12,7 +12,8 @@
             :class="{ 'img-active': props.isActive, 'img-cropped': props.size && !props.isActive }"
             :style="{
                 width: size + 'px',
-                height: size + 'px'
+                height: size + 'px',
+                'object-position': props.position || ''
             }"
         />
 
@@ -59,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import MarkdownIt from 'markdown-it';
 
 const props = defineProps({
@@ -70,7 +71,12 @@ const props = defineProps({
     },
     credit: String, // displayed in the little '?' icon
     isActive: Boolean,
-    size: Number
+    size: Number,
+    position: {
+        // for CSS object-position.
+        type: String,
+        required: false
+    }
 });
 
 const md = new MarkdownIt({ html: true, breaks: true });
@@ -78,11 +84,19 @@ const mdContent = ref('');
 
 // Update the caption value when the image changes.
 watch(props, () => {
+    parseMarkdown();
+});
+
+onMounted(() => {
+    parseMarkdown();
+});
+
+const parseMarkdown = () => {
     mdContent.value = md
         .render(props.alt || '')
         .replace(/<table/g, '<div class="table-container"><table')
         .replace(/<\/table>/g, '</table></div>');
-});
+};
 
 const preventDefault = (event: MouseEvent) => {
     event.preventDefault();
@@ -101,5 +115,6 @@ img {
 }
 .img-cropped {
     object-fit: cover;
+    aspect-ratio: 1 / 1;
 }
 </style>
