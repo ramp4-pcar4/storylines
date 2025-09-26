@@ -6,7 +6,7 @@
         :tabindex="props.isActive ? -1 : 0"
     >
         <img
-            :src="props.src"
+            :src="state.imageSource"
             :alt="props.alt"
             class="min-h-0"
             :class="{ 'img-active': props.isActive, 'img-cropped': props.size && !props.isActive }"
@@ -60,11 +60,16 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, reactive, ref, watch } from 'vue';
+import type { PropType } from 'vue';
+import type { ConfigFileStructure } from '@storylines/definitions';
 import MarkdownIt from 'markdown-it';
 
 const props = defineProps({
-    src: String,
+    src: {
+        type: String,
+        required: true
+    },
     alt: {
         type: String,
         default: ''
@@ -76,7 +81,15 @@ const props = defineProps({
         // for CSS object-position.
         type: String,
         required: false
+    },
+    configFileStructure: {
+        type: Object as PropType<ConfigFileStructure>,
+        required: false
     }
+});
+
+const state = reactive({
+    imageSource: ''
 });
 
 const md = new MarkdownIt({ html: true, breaks: true });
@@ -85,11 +98,39 @@ const mdContent = ref('');
 // Update the caption value when the image changes.
 watch(props, () => {
     parseMarkdown();
+    fetchSource();
 });
 
 onMounted(() => {
     parseMarkdown();
+    fetchSource();
 });
+
+const fetchSource = () => {
+    state.imageSource = props.src ? props.src : '';
+
+    // If configFileStructure is provided, retrieve the image from the ZIP folder.
+
+    if (props.configFileStructure) {
+        const assetSrc = `${props.src.substring(props.src.indexOf('/') + 1)}`;
+        const imageFile = props.configFileStructure?.zip.file(assetSrc);
+        const imageType = assetSrc.split('.').at(-1);
+        const imageName = props.src.replace(/^.*[\\/]/, '');
+        if (imageFile) {
+            // Convert the image to a blob so it can be displayed locally.
+            if (imageType !== 'svg') {
+                imageFile.async('blob').then((res: Blob) => {
+                    state.imageSource = URL.createObjectURL(res);
+                });
+            } else {
+                imageFile.async('text').then((res) => {
+                    const image = new File([res], imageName, { type: 'image/svg+xml' });
+                    state.imageSource = URL.createObjectURL(image);
+                });
+            }
+        }
+    }
+};
 
 const parseMarkdown = () => {
     mdContent.value = md
