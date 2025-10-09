@@ -83,11 +83,8 @@
     </div>
 
     <script type="text/javascript">
-        // URL Parsing for Language Switch
-        var url = new URL(window.location.href);
-
         var langChange = document.getElementById('langToggle');
-        langChange.href = url.pathname.replace('/fr/', '/en/');
+        langChange.href = window.location.href.replace('ca-fr.html', 'ca-en.html').replace('/fr/', '/en/').replace('lang=fr', 'lang=en'),
 
         document.addEventListener('Storylines-Loaded', (payload) => {
             const breadcrumbs = payload.detail.config.breadcrumbs ?? []; // default to an empty array if this property isn't defined.

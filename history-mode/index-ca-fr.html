@@ -30,15 +30,13 @@
         <div id="def-footer"></div>
 
         <script type="text/javascript">
-            // URL Parsing for Language Switch
-            var url = new URL(window.location.href);
 
             var defTop = document.getElementById('def-top');
             defTop.outerHTML = wet.builder.top({
                 lngLinks: [
                     {
                         lang: 'en',
-                        href: url.pathname.replace('/fr/', '/en/'),
+                        href: window.location.href.replace('ca-fr.html', 'ca-en.html').replace('/fr/', '/en/').replace('lang=fr', 'lang=en'),
                         text: 'English'
                     }
                 ]
