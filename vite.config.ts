@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue';
 import dsv from '@rollup/plugin-dsv';
 import path from 'path';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+//@ts-ignore
+import replaceTokensPlugin from './vite-plugins/replace-tokens.js';
 
 const baseConfig: UserConfigExport = {
     plugins: [
@@ -15,12 +17,17 @@ const baseConfig: UserConfigExport = {
                 { src: 'help', dest: './' },
                 { src: 'StorylinesSchema.json', dest: './' }
             ]
+        }),
+        replaceTokensPlugin({
+            tokens: {
+                'BASE_URL': process.env.BASE_URL || '/'
+            }
         })
     ],
     define: {
         'process.env': process.env
     },
-    base: './',
+    base: process.env.BASE_URL || '/',
     resolve: {
         alias: {
             '@storylines': path.resolve(__dirname, 'src'),
@@ -31,7 +38,7 @@ const baseConfig: UserConfigExport = {
         target: 'esnext'
     },
     server: {
-        open: '/#/en/00000000-0000-0000-0000-000000000000'
+        open: '/en/00000000-0000-0000-0000-000000000000'
     }
 };
 
