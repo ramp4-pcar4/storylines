@@ -103,13 +103,13 @@
         });
 
         document.querySelectorAll('.wb-sl').forEach(function (skipLink) {
-            skipLink.setAttribute('href', url.href.split(/#[^\/]/)[0] + '#' + skipLink.href.split('#')[1]);
+            skipLink.setAttribute('href', window.location.href.split(/#[^\/]/)[0] + '#' + skipLink.href.split('#')[1]);
         });
         var interval = setInterval(function () {
             var links = document.querySelectorAll('.wb-sl');
             if (links.length === 3) {
                 clearInterval(interval);
-                links[2].setAttribute('href', url.href.split(/#[^\/]/)[0] + '?' + links[2].href.split('?')[1]);
+                links[2].setAttribute('href', window.location.href.split(/#[^\/]/)[0] + '?' + links[2].href.split('?')[1]);
             }
         }, 200);
     </script>
