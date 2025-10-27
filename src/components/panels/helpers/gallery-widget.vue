@@ -10,6 +10,7 @@
                 @keypress.enter="onClick(idx)"
                 @click="onClick(idx, true, false)"
                 :size="itemSize"
+                :configFileStructure="configFileStructure"
             ></component>
         </div>
         <div v-if="props.caption" class="w-full text-center mt-2">
@@ -63,6 +64,7 @@
                     <component
                         :is="children[activeSlide]"
                         :isActive="true"
+                        :configFileStructure="configFileStructure"
                         style="align-self: center; margin: 0 auto"
                         class="min-h-0"
                         @click="closeModal"
@@ -101,7 +103,7 @@
                         :class="{ 'active-thumbnail': activeSlide === idx }"
                     >
                         <img
-                            :src="entry.props.src"
+                            :src="thumbnails[entry.props!.src] ? thumbnails[entry.props!.src] : ''"
                             class="object-cover"
                             style="display: block; height: 50px; width: 50px"
                             tabindex="0"
@@ -116,7 +118,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref, Teleport, Transition, useSlots } from 'vue';
+import { computed, inject, nextTick, onMounted, onUnmounted, ref, Teleport, Transition, useSlots } from 'vue';
+import type { ConfigFileStructure } from '@storylines/definitions';
 
 const props = defineProps({
     caption: String,
@@ -131,6 +134,8 @@ const props = defineProps({
     }
 });
 
+const configFileStructure: ConfigFileStructure | undefined = inject('configFileStructure');
+
 const identifier = Math.round(Math.random() * 1000000); // Unique identifier for the modal instance
 const popupOpen = ref(false);
 const activeSlide = ref(0);
@@ -142,6 +147,12 @@ const lastFocused = ref<HTMLElement | null>();
 
 const slots = useSlots();
 const children = computed(() => (slots.default ? slots.default() : []));
+
+interface Thumbnails {
+    [key: string]: string;
+}
+
+const thumbnails = ref<Thumbnails>({});
 
 /**
  * Opens the pop-up modal and sets the active slide. Also sets focus on the modal close button for keyboard accessibility.
@@ -161,9 +172,49 @@ const onClick = (idx: number, saveFocus: boolean = true, focusOnX: boolean = tru
 
     document.addEventListener('keydown', initTrapFocus);
 
+    // Fetch the gallery thumbnails.
+    fetchThumbnails();
+
     // Set focus on the modal close button for accessibility.
     nextTick(() => {
         if (focusOnX) modalCloseButton.value?.focus();
+    });
+};
+
+/**
+ * Create BLOB URLs for the preview images so they can be displayed locally.
+ */
+const fetchThumbnails = (): void => {
+    const fetchThumbnail = async (source: string): Promise<void> => {
+        // If configFileStructure is provided, retrieve the image from the ZIP folder.
+        if (configFileStructure) {
+            const assetSrc = `${source.substring(source.indexOf('/') + 1)}`;
+            const imageFile = configFileStructure?.zip.file(assetSrc);
+            const imageType = assetSrc.split('.').at(-1);
+            const imageName = source.replace(/^.*[\\/]/, '');
+            if (imageFile) {
+                // Convert the image to a blob so it can be displayed locally.
+                if (imageType !== 'svg') {
+                    await imageFile.async('blob').then((res: Blob) => {
+                        thumbnails.value[source] = URL.createObjectURL(res);
+                    });
+                } else {
+                    await imageFile.async('text').then((res) => {
+                        const image = new File([res], imageName, { type: 'image/svg+xml' });
+                        thumbnails.value[source] = URL.createObjectURL(image);
+                    });
+                }
+            }
+        } else {
+            thumbnails.value[source] = source;
+        }
+    };
+
+    children.value.forEach(async (entry) => {
+        const sourceProp = entry.props!.src as string;
+
+        if (!!thumbnails.value[sourceProp]) return;
+        await fetchThumbnail(sourceProp);
     });
 };
 
