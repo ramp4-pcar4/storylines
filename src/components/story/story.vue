@@ -97,9 +97,9 @@ import { EventBus } from '../../event-bus';
 
 const route = useRoute();
 
-const footerPadding = computed(
-    () => !window.location.href.includes('index-ca-en.html') && !window.location.href.includes('index-ca-fr.html')
-);
+// 'wb-cont' is a class used to define the body content of the WET template.
+// If it is not present, we need to add padding to the footer.
+const footerPadding = computed(() => !document.getElementById('wb-cont'));
 
 const footerPaddingStyle = computed(() => {
     measure();
