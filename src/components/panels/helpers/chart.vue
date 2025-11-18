@@ -15,7 +15,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { inject, onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
 import {
     ChartPanel,
     ConfigFileStructure,
@@ -29,10 +28,12 @@ import Highcharts from 'highcharts';
 import dataModule from 'highcharts/modules/data';
 import exporting from 'highcharts/modules/exporting';
 import exportData from 'highcharts/modules/export-data';
+import patternFill from 'highcharts/modules/pattern-fill';
 
 dataModule(Highcharts);
 exporting(Highcharts);
 exportData(Highcharts);
+patternFill(Highcharts);
 
 interface CSVFile {
     url: string;
