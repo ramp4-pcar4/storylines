@@ -168,6 +168,8 @@ const setTargetIndex = (index) => {
 };
 
 const handleSlideChange = (event: number): void => {
+    if (props.config.slides[event] === undefined) return;
+
     const img = (props.config.slides[event] as Slide).backgroundImage;
     const altText = (props.config.slides[event] as Slide).backgroundAltText;
     backgroundImage.value = !!img ? img : 'none';

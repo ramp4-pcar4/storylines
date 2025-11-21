@@ -21,7 +21,11 @@
                 {{ config.title }}
             </component>
 
-            <div class="px-10 md-content" v-html="md.render(config.content)"></div>
+            <TextContent
+                :content="mdContent"
+                :configFileStructure="configFileStructure"
+                @rerender="addDynamicURLs"
+            ></TextContent>
         </scrollama>
 
         <div
@@ -53,7 +57,7 @@
                 :dynamicIdx="activeIdx"
                 :ratio="false"
                 :background="background"
-                ref="content"
+                ref="panelContent"
             >
             </panel>
         </div>
@@ -62,13 +66,14 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
+import type { BasePanel, ConfigFileStructure, DynamicPanel } from '@storylines/definitions';
 import { defineAsyncComponent, getCurrentInstance, onMounted, ref } from 'vue';
-import { BasePanel, ConfigFileStructure, DynamicPanel } from '@storylines/definitions';
 
 import MarkdownIt from 'markdown-it';
 import Scrollama from './helpers/scrollama.vue';
 
 const panel = defineAsyncComponent(() => import('./panel.vue'));
+const TextContent = defineAsyncComponent(() => import('./helpers/text-content.vue'));
 
 const props = defineProps({
     config: {
@@ -87,7 +92,8 @@ const props = defineProps({
 });
 
 const el = ref();
-const content = ref();
+const panelContent = ref();
+const mdContent = ref('');
 
 // Get the ID of the first or default panel.
 const defaultPanel = (() => {
@@ -109,7 +115,8 @@ onMounted(() => {
         .querySelectorAll('.storyramp-app a:not([target])')
         .forEach((el: Element) => ((el as HTMLAnchorElement).target = '_blank'));
 
-    addDynamicURLs();
+    // Render the Markdown content.
+    mdContent.value = md.render(props.config.content);
 
     // Check for a switch from normal view to mobile view. Fixed text panel width will need to be adjusted.
     isMobile.value = window.innerWidth <= 640;
@@ -154,7 +161,7 @@ const addDynamicURLs = (): void => {
                 }, 10);
 
                 setTimeout(() => {
-                    const elTop = content.value?.$el.getBoundingClientRect().top;
+                    const elTop = panelContent.value?.$el.getBoundingClientRect().top;
                     window.scrollTo({
                         top: window.scrollY + elTop - calculateScrollOffset(),
                         left: 0,
@@ -168,7 +175,7 @@ const addDynamicURLs = (): void => {
 
 // Calculate the scroll offset based on whether the table of contents is horizontal or vertical.
 const calculateScrollOffset = (): number => {
-    const isHorizontal = content.value?.$el.closest('.toc-horizontal');
+    const isHorizontal = panelContent.value?.$el.closest('.toc-horizontal');
     const horizontalHeight = document.getElementById('h-navbar')?.clientHeight;
     const headerHeight = document.getElementById('story-header')!.clientHeight;
 
@@ -193,7 +200,7 @@ const clickBack = (): void => {
     }, 10);
 
     setTimeout(() => {
-        const elTop = content.value?.$el.getBoundingClientRect().top;
+        const elTop = panelContent.value?.$el.getBoundingClientRect().top;
         window.scrollTo({
             top: window.scrollY + elTop - calculateScrollOffset(),
             left: 0,
