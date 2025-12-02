@@ -13,6 +13,8 @@ import VuePapaParse from 'vue-papa-parse';
 import VueFullscreen from 'vue-fullscreen';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/dist/backdrop.css';
+import 'vue-final-modal/style.css';
+import { vfm } from './plugins/vfm/index';
 
 const app = createApp(App);
 
@@ -24,7 +26,8 @@ app.use(router)
         component: 'tippy'
     })
     .use(VuePapaParse)
-    .use(VueFullscreen);
+    .use(VueFullscreen)
+    .use(vfm);
 
 app.provide('$papa', app.config.globalProperties.$papa);
 
