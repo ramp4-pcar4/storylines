@@ -396,3 +396,10 @@ export interface BreadcrumbConfig {
     title: string;
     href: string;
 }
+
+export interface HelpSection {
+    header: string;
+    info: string;
+    drawn: boolean;
+    expanded: boolean;
+}
