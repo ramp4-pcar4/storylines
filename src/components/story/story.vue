@@ -31,7 +31,7 @@
                         @scroll-to-slide="setTargetIndex"
                         :lang="lang"
                     />
-                    <div class="flex-none w-mobile-full truncate">
+                    <div class="flex-1 truncate">
                         <button
                             class="text-lg font-semibold hover:underline"
                             @click="scrollToTop"
@@ -45,8 +45,23 @@
                             {{ config.title }}
                         </button>
                     </div>
-                    <div class="flex justify-end flex-auto space-x-6">
-                        <!-- Any links we want in the header can go here -->
+                    <div class="flex justify-end pt-1.5">
+                        <!-- Help Button -->
+                        <button
+                            class="flex items-center justify-center font-bold rounded-full border-black border-2 w-7 h-7 focus:outline-black"
+                            @click="$vfm.open('help-panel')"
+                            :aria-label="$t('help.title')"
+                            v-tippy="{
+                                delay: '200',
+                                placement: 'bottom',
+                                content: $t('help.title'),
+                                animateFill: true,
+                                touch: ['hold', 500]
+                            }"
+                            ref="helpButton"
+                        >
+                            ?
+                        </button>
                     </div>
                 </div>
             </header>
@@ -62,6 +77,16 @@
                     :targetIndex="targetIndex"
                 />
             </div>
+
+            <HelpPanel
+                :help-sections="helpSections"
+                @close="
+                    () => {
+                        // Hide the tooltip when the modal is closed to prevent it from reappearing.
+                        helpButton._tippy.hide();
+                    }
+                "
+            ></HelpPanel>
 
             <footer class="p-8 pt-2 text-right text-sm">
                 Context:
@@ -88,11 +113,15 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRoute, type RouteLocationNormalized } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 
+import axios from 'redaxios';
+import { marked } from 'marked';
+
 import MobileMenu from './mobile-menu.vue';
 import StoryContent from '@storylines/components/story/story-content.vue';
 import Intro from '@storylines/components/story/introduction.vue';
+import HelpPanel from '../panels/helpers/help/help-panel.vue';
 
-import type { StoryRampConfig, Slide } from '@storylines/definitions';
+import type { StoryRampConfig, Slide, HelpSection } from '@storylines/definitions';
 import { VueSpinnerOval } from 'vue3-spinners';
 import { EventBus } from '../../event-bus';
 
@@ -118,6 +147,10 @@ const headerHeight = ref(0);
 const lang = ref('en');
 const lastSlideHeight = ref(0);
 const extraHeight = ref(0);
+
+const helpSections = ref<HelpSection[]>([]);
+const helpMd = ref('');
+const helpButton = ref();
 
 function measure(): void {
     const nav = document.getElementById('h-navbar');
@@ -150,6 +183,8 @@ onMounted(() => {
     const html = document.documentElement; // returns the html tag
     html.setAttribute('lang', lang.value);
     locale.value = lang.value;
+
+    fetchHelpMarkdown();
 });
 
 onBeforeUnmount(() => {
@@ -230,6 +265,31 @@ const fetchConfig = (uid: string, lang: string): void => {
                 console.error(err.stack);
             }
         });
+};
+
+/**
+ * Fetch markdown content for help panel.
+ */
+const fetchHelpMarkdown = (): void => {
+    const helpPath = process.env.NODE_ENV === 'development' ? `../../help/` : `./help/`;
+    const helpFile = `${route.params.lang}.md`;
+
+    axios.get(`${helpPath}${helpFile}`).then((r) => {
+        const reg = /^#\s(.*)\n{2}(?:.+|\n(?!\n{2,}))*/gm;
+        const renderer = new marked.Renderer();
+
+        helpMd.value = r.data.replace(new RegExp(String.fromCharCode(13), 'g'), '');
+        let section;
+        while ((section = reg.exec(helpMd.value))) {
+            const info_results = marked(section[0].split('\n').splice(2).join('\n'), { renderer }) as string;
+            helpSections.value.push({
+                header: section[1],
+                info: info_results,
+                drawn: true,
+                expanded: true
+            });
+        }
+    });
 };
 
 const addStylesheets = (paths: string[]): void => {
