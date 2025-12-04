@@ -121,7 +121,8 @@ const init = async () => {
         const mapFile = props.configFileStructure.zip.file(assetSrc);
         if (mapFile) {
             mapFile.async('string').then((res: string) => {
-                setupMap(JSON.parse(res));
+                const cleanRes = res.replace(/^\uFEFF/, ''); // Remove BOM if present.
+                setupMap(JSON.parse(cleanRes));
             });
         }
     } else {

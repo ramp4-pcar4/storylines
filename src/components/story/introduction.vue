@@ -134,7 +134,7 @@ onMounted(() => {
             const bgSrc = `${background.substring(background.indexOf('/') + 1)}`;
             const bgFile = props.configFileStructure.zip.file(bgSrc);
             const bgType = bgSrc.split('.').at(-1);
-            const bgName = logo.replace(/^.*[\\/]/, '');
+            const bgName = background.replace(/^.*[\\/]/, '');
             if (bgFile) {
                 if (bgType !== 'svg') {
                     bgFile.async('blob').then((res: Blob) => {
