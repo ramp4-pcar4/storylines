@@ -2,7 +2,7 @@
     "title": "Aperçu des secteurs de l’INRP : extraction de sables bitumineux111111",
     "introSlide": {
         "logo": {
-            "src": "https://raw.githubusercontent.com/ramp4-pcar4/ramp4-pcar4/master/assets/logo.svg",
+            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/logo.svg",
             "altText": "Logo"
         },
         "title": "Aperçu des secteurs de l’INRP : extraction de sables bitumineux",
@@ -14,11 +14,11 @@
             "panel": [
                 {
                     "title": "Aperçu",
-                    "content": "<Gallery caption='I am a gallery that has a 75% max width and a maximum of 3 items per row, even though 4 items would fit.'  maxPerRow=3 ><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg' alt='An image displaying a flowchart for Canadas National Pollutant Release Inventory' /><GalleryItem src='00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg' /></Gallery>**L’extraction de sables bitumineux** fait partie de la série Aperçu des secteurs de l’Inventaire national des rejets de polluants (INRP). Cet aperçu du secteur présente les substances de l’INRP rejetées, éliminées et transférées par cette industrie. Il résume également les mesures prises par les installations de ce secteur pour atténuer leurs répercussions environnementales.\n\nLes entreprises, les établissements et d’autres entités partout au Canada doivent chaque année déclarer à l’Inventaire national des rejets de polluants (INRP) du gouvernement du Canada les polluants qu’ils rejettent, transfèrent et déchargent dans l’air, l’eau et le sol. Les renseignements recueillis sont du domaine public. Ils aident les gouvernements à établir leurs priorités en matière d’environnement et à surveiller leur bilan environnemental, ainsi qu’à fournir aux Canadiens l’occasion de s’informer au sujet de la pollution dans leur environnement immédiat.",
+                    "content": "<Gallery caption='I am a gallery that has a 75% max width and a maximum of 3 items per row, even though 4 items would fit.'  maxPerRow=3 ><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/bg.jpg' /><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-187242601__1554821467033__w1920.jpg' alt='An image displaying a flowchart for Canadas National Pollutant Release Inventory' /><GalleryItem src='{BASE_URL}00000000-0000-0000-0000-000000000000/assets/en/GettyImages-516166467__1554821531978__w1920.jpg' /></Gallery>**L’extraction de sables bitumineux** fait partie de la série Aperçu des secteurs de l’Inventaire national des rejets de polluants (INRP). Cet aperçu du secteur présente les substances de l’INRP rejetées, éliminées et transférées par cette industrie. Il résume également les mesures prises par les installations de ce secteur pour atténuer leurs répercussions environnementales.\n\nLes entreprises, les établissements et d’autres entités partout au Canada doivent chaque année déclarer à l’Inventaire national des rejets de polluants (INRP) du gouvernement du Canada les polluants qu’ils rejettent, transfèrent et déchargent dans l’air, l’eau et le sol. Les renseignements recueillis sont du domaine public. Ils aident les gouvernements à établir leurs priorités en matière d’environnement et à surveiller leur bilan environnemental, ainsi qu’à fournir aux Canadiens l’occasion de s’informer au sujet de la pollution dans leur environnement immédiat.",
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/NPRIpictogramme-2016data-FR__1552505700147__w975.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/NPRIpictogramme-2016data-FR__1552505700147__w975.jpg",
                     "type": "image"
                 }
             ]
@@ -32,7 +32,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/OilSandsDeposits.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/OilSandsDeposits.json",
                     "type": "map",
                     "scrollguard": true
                 }
@@ -47,7 +47,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/GettyImages-187242601__1554821412825__w1920.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/GettyImages-187242601__1554821412825__w1920.jpg",
                     "type": "image"
                 }
             ]
@@ -61,7 +61,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/Slide 3 - mine vs insitu.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/Slide 3 - mine vs insitu.jpg",
                     "type": "image"
                 }
             ]
@@ -75,7 +75,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/OilSandsFacilityLocations2019.json",
                     "type": "map"
                 }
             ]
@@ -91,31 +91,31 @@
                 {
                     "items": [
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/AuroraNorth_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/AuroraNorth_RelDisp_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/FortHills_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/FortHills_RelDisp_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/Horizon_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/Horizon_RelDisp_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/Kearl_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/Kearl_RelDisp_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/MuskegJackpine_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/MuskegJackpine_RelDisp_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/Suncor_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/Suncor_RelDisp_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/substances/Syncrude_RelDisp_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/substances/Syncrude_RelDisp_FR.PNG",
                             "type": "image"
                         }
                     ],
@@ -134,7 +134,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
                     "type": "map"
                 }
             ]
@@ -148,7 +148,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/slide 6 trends in mining.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/slide 6 trends in mining.jpg",
                     "type": "image"
                 }
             ]
@@ -162,7 +162,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/Top10SubstancesTailings2019.png",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/Top10SubstancesTailings2019.png",
                     "type": "image"
                 }
             ]
@@ -178,31 +178,31 @@
                 {
                     "items": [
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/AuroraNorth_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/AuroraNorth_Tailings_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/FortHills_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/FortHills_Tailings_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/Horizon_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/Horizon_Tailings_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/Kearl_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/Kearl_Tailings_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/Muskeg_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/Muskeg_Tailings_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/Suncor_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/Suncor_Tailings_FR.PNG",
                             "type": "image"
                         },
                         {
-                            "src": "00000000-0000-0000-0000-000000000000/assets/fr/tailings/Syncrude_Tailings_FR.PNG",
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/tailings/Syncrude_Tailings_FR.PNG",
                             "type": "image"
                         }
                     ],
@@ -221,7 +221,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasesandDisposalsbyMiningFacilitiesin2019(satellite).json",
                     "type": "map"
                 }
             ]
@@ -235,7 +235,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/TailingsfromMiningFacilities2010to2019(timeslider).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/TailingsfromMiningFacilities2010to2019(timeslider).json",
                     "type": "map"
                 }
             ]
@@ -249,7 +249,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/Slide 10 - SAGD vs CSS.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/Slide 10 - SAGD vs CSS.jpg",
                     "type": "image"
                 }
             ]
@@ -263,7 +263,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasestoAirbyInSituFacilitiesforAllSubstancesin2019.json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasestoAirbyInSituFacilitiesforAllSubstancesin2019.json",
                     "type": "map"
                 }
             ]
@@ -277,7 +277,7 @@
                     "type": "text"
                 },
                 {
-                    "config": "00000000-0000-0000-0000-000000000000/ramp-config/ReleasestoAirbyInSituFacilitiesforAllSubstances2010to2019(timeslider).json",
+                    "config": "{BASE_URL}00000000-0000-0000-0000-000000000000/ramp-config/ReleasestoAirbyInSituFacilitiesforAllSubstances2010to2019(timeslider).json",
                     "type": "map"
                 }
             ]
@@ -291,7 +291,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/Slide%2013%20Insitu%20trends%20-%20French__1554407015712__w628.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/Slide%2013%20Insitu%20trends%20-%20French__1554407015712__w628.jpg",
                     "type": "image"
                 }
             ]
@@ -305,7 +305,7 @@
                     "type": "text"
                 },
                 {
-                    "src": "00000000-0000-0000-0000-000000000000/assets/fr/slide%2014%20-%20athabasca.jpg",
+                    "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/assets/fr/slide%2014%20-%20athabasca.jpg",
                     "type": "image"
                 }
             ]
@@ -318,11 +318,11 @@
                     "items": [
                         {
                             "type": "chart",
-                            "src": "00000000-0000-0000-0000-000000000000/charts/en/chartConfig.json"
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/chartConfig.json"
                         },
                         {
                             "type": "chart",
-                            "src": "00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json"
+                            "src": "{BASE_URL}00000000-0000-0000-0000-000000000000/charts/en/hybridChartConfig.json"
                         }
                     ]
                 }
