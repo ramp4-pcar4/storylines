@@ -42,7 +42,7 @@
         <router-link
             :to="{ hash: `#${getSlideId(tocItem.slideIndex)}`, query: route.query }"
             class="flex items-center px-2 py-1 mx-1"
-            :class="{ 'flex-grow min-w-0': parentItem, 'pb-2': parentItem && !verticalToc }"
+            :class="{ 'flex-grow min-w-0': parentItem }"
             target
             v-tippy="{
                 delay: '200',
