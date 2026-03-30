@@ -151,6 +151,7 @@ const setupMap = (config: any) => {
             'layer/layerstatechange',
             () => {
                 if (rInstance.geo.layer.allLayers().every((l: any) => l.isLoaded)) {
+                console.log('gordon bot')
                     rInstance.event.emit('grid/toggle', rInstance.geo.layer.getLayer(gridId));
                     rInstance.event.off('initial_grid');
                 }
