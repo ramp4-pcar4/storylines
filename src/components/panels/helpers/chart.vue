@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { inject, onMounted, ref } from 'vue';
-import {
+import type {
     ChartPanel,
     ConfigFileStructure,
     DQVChartConfig,

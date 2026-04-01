@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { type HelpSection } from '@storylines/definitions';
+import type { HelpSection } from '@storylines/definitions';
 import HelpSectionV from './help-section.vue';
 import { VueFinalModal } from 'vue-final-modal';
 

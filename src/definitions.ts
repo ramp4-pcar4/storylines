@@ -403,3 +403,4 @@ export interface HelpSection {
     drawn: boolean;
     expanded: boolean;
 }
+

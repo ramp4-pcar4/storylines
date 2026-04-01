@@ -24,9 +24,6 @@ const baseConfig: UserConfigExport = {
             }
         })
     ],
-    define: {
-        'process.env': process.env
-    },
     base: process.env.BASE_URL || '/',
     resolve: {
         alias: {
@@ -50,14 +47,14 @@ export default defineConfig(() => {
                 name: 'StorylinesViewer',
                 fileName: 'storylines-viewer'
             },
-            rollupOptions: {
+            rolldownOptions: {
                 external: ['vue', 'ramp-pcar'],
                 output: {
                     globals: {
                         vue: 'Vue',
                         'vue-papa-parse': 'VuePapaParse'
                     },
-                    inlineDynamicImports: true,
+                    codeSplitting: false,
                     dir: 'dist'
                 }
             },
@@ -65,7 +62,7 @@ export default defineConfig(() => {
         });
     } else {
         Object.assign(baseConfig.build!, {
-            rollupOptions: {
+            rolldownOptions: {
                 input: {
                     main: '/index.html',
                     en: '/index-ca-en.html',
