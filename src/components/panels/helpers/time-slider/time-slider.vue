@@ -1,5 +1,4 @@
-<template>
-    <div ref="el" class="time-slider absolute w-full h-full left-0 flex flex-col items-center bg-white">
+<template>    <div ref="el" class="time-slider absolute w-full h-full left-0 flex flex-col items-center bg-white">
         <button class="absolute left-4 play-button" @click="intervalID >= 0 ? endLoop() : startLoop()"
             :content="$t(intervalID >= 0 ? 'timeslider.pause' : 'timeslider.play')"
             v-tippy="{ placement: 'top', hideOnClick: false, animateFill: true }"
@@ -38,10 +37,11 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { onMounted, ref } from 'vue';
-import { type RangeFormatter, TimeSliderPlayMode, type TimeSliderConfig, TimeSliderFormat, type TimeSliderFormatter, type ValueFormatter, type DateFormatter } from '@storylines/definitions';
+import { TimeSliderFormat, TimeSliderPlayMode } from '@storylines/definitions';
+import type { DateFormatter, RangeFormatter, TimeSliderConfig, TimeSliderFormatter, ValueFormatter } from '@storylines/definitions';
 import noUiSlider, { type API, type Formatter, type Options, PipsMode } from 'nouislider';
 import { useI18n } from 'vue-i18n';
-import { debounce } from 'throttle-debounce';
+import { debounce } from 'es-toolkit/function';
 
 const { t } = useI18n();
 
@@ -122,7 +122,7 @@ onMounted(() => {
     );
 });
 
-const sliderUpdateHandler = debounce(250, () => {
+const sliderUpdateHandler = debounce( () => {
         const sliderValues = slider.value!.get() as string | string[];
         if (Array.isArray(sliderValues)) {
             range.value = sliderValues.map((n: string) => {
@@ -165,10 +165,7 @@ const sliderUpdateHandler = debounce(250, () => {
                 l?.setSqlFilter('time_slider', sqlString);
             });
         }
-    },
-    {
-        atBegin: false
-    });
+    }, 250);
 
 /**
  * Turn a timeslider value into the proper format for querying an arcgis date attribute

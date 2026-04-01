@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue';
-import { ChartPanel, ConfigFileStructure } from '@storylines/definitions';
+import type { ChartPanel, ConfigFileStructure } from '@storylines/definitions';
 import Chart from '@storylines/components/panels/helpers/chart.vue';
 
 defineProps({
