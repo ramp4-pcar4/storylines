@@ -64,7 +64,7 @@
                         transform="matrix(1, 0, 0, 1, 8.881784197001252e-16, 0)"
                     />
                 </svg>
-                <span class="flex-1 ml-4 overflow-hidden leading-normal overflow-ellipsis whitespace-nowrap">{{
+                <span class="flex-1 overflow-hidden leading-normal overflow-ellipsis whitespace-nowrap" :class="{ 'ml-4': tocType!== 'horizontal'}">{{
                     $t('chapters.return')
                 }}</span>
             </a>
@@ -119,7 +119,7 @@
                         transform="matrix(1, 0, 0, 1, 8.881784197001252e-16, 0)"
                     />
                 </svg>
-                <span class="flex-1 ml-4 overflow-hidden leading-normal overflow-ellipsis whitespace-nowrap">{{
+                <span class="flex-1 overflow-hidden leading-normal overflow-ellipsis whitespace-nowrap"  :class="{ 'ml-4': tocType!== 'horizontal'}">{{
                     $t('chapters.return')
                 }}</span>
             </router-link>
@@ -127,72 +127,76 @@
 
         <!-- Build custom configured table of contents -->
         <template v-if="customToc">
-            <li
-                v-for="(item, idx) in customToc"
-                :key="idx"
-                :class="{
-                    'is-active': lastActiveIdx === item.slideIndex || isSublistActive(item.sublist),
-                    separator:
+            <template v-for="(item, idx) in customToc" :key="idx">
+                <span
+                    class="separator"
+                    v-if="
                         tocType === 'horizontal' &&
                         ((!returnToTop && idx % 8 !== 0) || (returnToTop && (idx + 1) % 8 !== 0))
-                }"
-                ref="itemContainer"
-                @focusout="handleFocus(idx)"
-            >
-                <toc-item
-                    :tocItem="item"
-                    :slides="slides"
-                    :plugin="plugin"
-                    @scroll-to-slide="scrollToTarget"
-                    :verticalToc="tocType !== 'horizontal'"
-                >
-                    <button
-                        class="mr-1"
-                        :aria-label="$t('chapters.menu.dropdown')"
-                        v-if="item.sublist && item.sublist.length && (tocType === 'horizontal' || isMenuOpen)"
-                        @click="toggleSublist(idx)"
-                    >
-                        <svg
-                            data-v-b1261e08=""
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="18"
-                            viewBox="0 0 24 24"
-                            width="18"
-                            :class="{ 'rotate-180': isSublistToggled(idx) }"
-                        >
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path>
-                        </svg>
-                    </button>
-                </toc-item>
-
-                <!-- Dropdown for sublists -->
-                <ul
-                    v-show="isSublistToggled(idx)"
+                    "
+                ></span>
+                <li
                     :class="{
-                        'sublist-menu-horizontal mt-1': tocType === 'horizontal',
-                        'sublist-menu': tocType !== 'horizontal'
+                        'is-active': lastActiveIdx === item.slideIndex || isSublistActive(item.sublist)
                     }"
+                    ref="itemContainer"
+                    @focusout="handleFocus(idx)"
                 >
-                    <li
-                        v-for="(subItem, subIdx) in item.sublist"
-                        :key="subIdx"
-                        :class="{
-                            'border-t-2': tocType === 'horizontal' && subIdx !== 0,
-                            'border-gray-300': tocType === 'horizontal',
-                            'is-active': lastActiveIdx === subItem.slideIndex
-                        }"
+                    <toc-item
+                        :tocItem="item"
+                        :slides="slides"
+                        :plugin="plugin"
+                        @scroll-to-slide="scrollToTarget"
+                        :verticalToc="tocType !== 'horizontal'"
                     >
-                        <toc-item
-                            :tocItem="subItem"
-                            :slides="slides"
-                            :parentItem="false"
-                            :plugin="plugin"
-                            :verticalToc="tocType !== 'horizontal'"
-                            @scroll-to-slide="scrollToTarget"
-                        ></toc-item>
-                    </li>
-                </ul>
-            </li>
+                        <button
+                            class="toc-sublist-toggle"
+                            :aria-label="$t('chapters.menu.dropdown')"
+                            v-if="item.sublist && item.sublist.length && (tocType === 'horizontal' || isMenuOpen)"
+                            @click="toggleSublist(idx)"
+                        >
+                            <svg
+                                data-v-b1261e08=""
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                width="18"
+                                :class="{ 'rotate-180': isSublistToggled(idx) }"
+                            >
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path>
+                            </svg>
+                        </button>
+                    </toc-item>
+
+                    <!-- Dropdown for sublists -->
+                    <ul
+                        v-show="isSublistToggled(idx)"
+                        :class="{
+                            'sublist-menu-horizontal mt-1': tocType === 'horizontal',
+                            'sublist-menu': tocType !== 'horizontal'
+                        }"
+                    >  
+                        <template v-for="(subItem, subIdx) in item.sublist" :key="subIdx">
+                            <span v-if="tocType === 'horizontal' && subIdx !== 0" class="border-t-2 w-full block"></span>
+                            <li
+                                :class="{
+                                    'border-gray-300': tocType === 'horizontal',
+                                    'is-active': lastActiveIdx === subItem.slideIndex
+                                }"
+                            >
+                                <toc-item
+                                    :tocItem="subItem"
+                                    :slides="slides"
+                                    :parentItem="false"
+                                    :plugin="plugin"
+                                    :verticalToc="tocType !== 'horizontal'"
+                                    @scroll-to-slide="scrollToTarget"
+                                ></toc-item>
+                            </li>
+                        </template>
+                    </ul>
+                </li>
+            </template>
         </template>
 
         <!-- Default table of contents -->
@@ -401,6 +405,39 @@ const handleFocus = (idx: number) => {
     overflow-y: auto;
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
+    padding-bottom: 2px;
+    padding-top: 2px;
+
+    li {
+        a:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:focus {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        a:hover svg {
+            stroke: var(--sr-accent-colour);
+        }
+
+        a:visited {
+            color: inherit;
+        }
+
+        &.is-active {
+            :deep(svg) {
+                fill: var(--sr-accent-colour);
+                stroke: var(--sr-accent-colour);
+            }
+
+            :deep(span) {
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 .nav-content::-webkit-scrollbar {
@@ -409,37 +446,6 @@ const handleFocus = (idx: number) => {
 
 .nav-content-mobile {
     height: calc(100vh - 4rem);
-}
-
-li {
-    a:hover {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    a:focus {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    a:hover svg {
-        stroke: var(--sr-accent-colour);
-    }
-
-    a:visited {
-        color: inherit;
-    }
-
-    &.is-active {
-        :deep(svg) {
-            fill: var(--sr-accent-colour);
-            stroke: var(--sr-accent-colour);
-        }
-
-        :deep(span) {
-            font-weight: bold;
-        }
-    }
 }
 
 .sublist-menu {
@@ -454,7 +460,7 @@ li {
             font-weight: normal !important;
         }
 
-        &.is-active {
+        &.is-active .toc-item {
             :deep(span) {
                 font-weight: bold !important;
             }
@@ -474,6 +480,8 @@ li {
 // Styling for horizontal Toc
 .separator {
     position: relative;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .separator::before {
@@ -496,6 +504,7 @@ li {
     > li {
         background-color: rgb(255, 255, 255);
         font-weight: normal;
+        border-radius: 8px;
 
         &.is-active {
             background-color: var(--sr-accent-colour);
@@ -519,13 +528,22 @@ li {
 .nav-content-horizontal > li {
     float: left;
     width: 12%;
-    border-radius: 8px;
     position: relative;
-    a {
+
+    .toc-sublist-toggle {
+        border-radius: 8px;
+        margin-right: 2px;
+    }
+
+    :deep(a) {
         text-overflow: ellipsis;
+        border-radius: 8px;
+        margin-left: 2px;
+        margin-right: 2px;
     }
 
     &.is-active {
+        border-radius: 8px;
         background-color: var(--sr-accent-colour);
         font-weight: bold;
     }
