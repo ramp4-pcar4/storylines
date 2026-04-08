@@ -1,0 +1,1 @@
+import{t as e}from"./controllers-D3RtgB-P-DhzaimMz.js";var t=()=>e((e,t)=>{let n=new Set;return t.onDisconnected(()=>{n.forEach(e=>e.cancel())}),{add:e=>{[e].flat().forEach(e=>n.add(e))},resources:n}});export{t};

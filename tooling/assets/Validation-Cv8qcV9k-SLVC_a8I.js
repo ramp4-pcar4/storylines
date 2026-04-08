@@ -1,0 +1,1 @@
+import{I as e,V as t,i as n,x as r}from"./runtime-Cm-NGAfC-jxca4QhX.js";var i={validationContainer:`validation-container`},a=()=>{},o=({scale:o,status:s,id:c,icon:l,message:u,ref:d})=>t`<div class=${r(i.validationContainer)} ${e(d||a)}><calcite-input-message aria-live=polite .icon=${l} id=${c??n} .scale=${o} .status=${s}>${u}</calcite-input-message></div>`;export{o as t};
