@@ -1,0 +1,1 @@
+import{t as e}from"./Dictionary-ko9s9TQ2-JF8KlNJP.js";var t=class extends e{constructor(e){super(),this.declaredClass=`esri.arcade.Portal`,this.immutable=!1,this.setField(`url`,e),this.immutable=!0}};export{t};

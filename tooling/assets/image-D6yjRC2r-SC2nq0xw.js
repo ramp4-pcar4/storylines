@@ -1,1 +1,0 @@
-import{U as e}from"./request-p0GURVA_-DRBIbCa1.js";async function t(t,n){return(await e(t,{responseType:`image`,...n})).data}export{t};
