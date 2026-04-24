@@ -67,7 +67,7 @@
 import type { PropType } from 'vue';
 import { onMounted, onUpdated, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { ConfigFileStructure, Slide, StoryRampConfig } from '@storylines/definitions';
+import type { ConfigFileStructure, Slide, StoryRampConfig } from '@storylines/definitions';
 import 'intersection-observer';
 
 import ChapterMenu from './chapter-menu.vue';

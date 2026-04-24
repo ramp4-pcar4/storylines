@@ -27,7 +27,8 @@
 
 <script setup lang="ts">
 import type { Component, PropType } from 'vue';
-import { BasePanel, ConfigFileStructure, PanelType } from '@storylines/definitions';
+import { PanelType } from '@storylines/definitions';
+import type { BasePanel, ConfigFileStructure } from '@storylines/definitions';
 
 import TextPanel from './text-panel.vue';
 import MapPanel from './map-panel.vue';

@@ -25,7 +25,8 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { getCurrentInstance, onMounted, ref } from 'vue';
-import { ConfigFileStructure, PanelType, Slide } from '@storylines/definitions';
+import { PanelType } from '@storylines/definitions';
+import type { ConfigFileStructure, Slide } from '@storylines/definitions';
 import Panel from '@storylines/components/panels/panel.vue';
 
 const key = getCurrentInstance()?.vnode.key as string;
