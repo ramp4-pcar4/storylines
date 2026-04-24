@@ -1,0 +1,1 @@
+import{P as e,v as t}from"./SpatialReference-DESQkHRK-CYEOjn_c.js";var n=class extends t{getOperatorType(){return 7}execute(t,n,r,i){return e(t,n,r,2,i)}};export{n as t};
