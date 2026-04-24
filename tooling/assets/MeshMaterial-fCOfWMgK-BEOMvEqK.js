@@ -1,1 +1,0 @@
-import{t as e}from"./MeshMaterial-fCOfWMgK-DptpdSS6.js";export{e as t};

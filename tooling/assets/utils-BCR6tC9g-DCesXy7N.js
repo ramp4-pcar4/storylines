@@ -1,1 +1,0 @@
-import{t as e}from"./Version-DTObi1_L-5oAnNIYW.js";function t(e){return typeof e==`object`&&!!e&&`declaredClass`in e&&e.declaredClass===`esri.WebMap`}new e(2,36,`webmap`);export{t};

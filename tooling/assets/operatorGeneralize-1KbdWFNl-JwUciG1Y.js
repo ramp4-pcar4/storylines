@@ -1,1 +1,0 @@
-import{t as e}from"./SimpleGeometryCursor-BvetkpG2-CrHz9yWm.js";import{t}from"./OperatorGeneralize-Br0IEc4w-uJ_hGrlE.js";var n=new t;function r(e,t,r){return n.execute(e,t,r,null)}function i(t,r,i){let a=n.executeMany(new e(t),r,i,null);return Array.from(a)}function a(){return n.supportsCurves()}export{i as n,r,a as t};
