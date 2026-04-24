@@ -1,1 +1,0 @@
-import{t as e}from"./glsl-EDZkDhgF-1nQWz_5s.js";var t=e`vec4(0.0, 0.0, 2.0, 1.0)`;export{t};
