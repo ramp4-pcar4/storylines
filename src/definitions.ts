@@ -80,7 +80,9 @@ export interface LineSeriesData {
 
 export interface DQVChartConfig {
     lang?: {
+        contextButtonTitle: string;
         viewFullscreen: string;
+        exitFullscreen: string;
         printChart: string;
         downloadPNG: string;
         downloadJPEG: string;

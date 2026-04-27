@@ -79,7 +79,9 @@ const $papa: any = inject('$papa');
 
 // add FR translations strings to highcharts configuration as required
 const menuLabels = {
+    contextButtonTitle: t('chart.contextButtonTitle'),
     viewFullscreen: t('chart.viewFullscreen'),
+    exitFullscreen: t('chart.exitFullscreen'),
     printChart: t('chart.printChart'),
     downloadPNG: t('chart.downloadPNG'),
     downloadJPEG: t('chart.downloadJPEG'),
