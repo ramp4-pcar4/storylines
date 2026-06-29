@@ -31,7 +31,7 @@
         "highcharts-vue": "^1.4.3",
         "intersection-observer": "^0.12.2",
         "jszip": "^3.10.1",
-        "markdown-it": "^12.0.6",
+        "markdown-it": "^14.2.0",
         "marked": "^17.0.5",
         "nouislider": "^15.5.0",
         "ramp-pcar": "^4.21.0",
