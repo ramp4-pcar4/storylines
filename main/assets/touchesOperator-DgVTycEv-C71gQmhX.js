@@ -1,1 +1,0 @@
-import{c as e,r as t}from"./jsonConverter-XwrET8Lk-BaOB7jWR.js";import{t as n}from"./OperatorTouches-BtaAOSOa-BtKIPI-H.js";var r=new n;function i(n,i){let a=t(n);return r.execute(a.getGeometry(),e(i),a.getSpatialReference(),null)}export{i as execute};

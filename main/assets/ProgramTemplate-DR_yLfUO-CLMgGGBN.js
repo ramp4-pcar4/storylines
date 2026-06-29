@@ -1,0 +1,1 @@
+import{t as e}from"./Program-C35gB9eG-B_8-kY8x.js";function t(t,n,r,i=``){return new e(t,i+n.vertexShader,i+n.fragmentShader,r)}export{t};
