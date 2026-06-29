@@ -1,1 +1,0 @@
-import{t as e}from"./MeshVertexAttributes-DIZC0kqK-BcEYw5_G.js";export{e as t};
