@@ -1,1 +1,0 @@
-import"./ShaderBuilder-aUMFb5cS-Bh1P788U.js";import"./glsl-EDZkDhgF-n7nRq5tN.js";import"./Emissions.glsl-C1fRgyHC-BHLvU4yY.js";import"./FloatArray-BPbliE26-QHySD8fE.js";import{s as e}from"./DefaultMaterial-DUbAEU6w-bkfspcKh.js";export{e as build};
