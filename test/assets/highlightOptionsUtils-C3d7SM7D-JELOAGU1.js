@@ -1,0 +1,1 @@
+import"./HighlightDefaults-BuCDzcMG-CF86lAWB.js";function e(e){return e?.name??`default`}export{e as t};

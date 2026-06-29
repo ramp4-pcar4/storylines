@@ -1,0 +1,1 @@
+import{r as e}from"./utils-DtsDtyPe-BAxbzMVZ.js";import{n as t}from"./TopFeaturesQuery-DqmYYIv2--SEKT7CD.js";import{r as n}from"./queryTopFeatures-CQ71pVrh-BOCKHdoh.js";async function r(r,i,a){return(await n(e(r),t.from(i),{...a})).data.count}export{r as executeForTopCount};
