@@ -1,1 +1,0 @@
-import"./Point2D-CFceksQp-BlPxtOgq.js";import{f as e}from"./SpatialReference-59DE-EPq-CWDEYzLF.js";export{e as OperatorProject};

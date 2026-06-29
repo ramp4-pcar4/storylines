@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-DAXXjFlN.js";import"./units-DM12kKtO-D1RElOLd.js";import{t}from"./chunk-foFoljWS-8WvI1i2Y.js";import"./apiConverter-DgVehggs-lEdR4FmE.js";import{t as n}from"./areaOperator-B7A19Qhq-DA7f9gwz.js";var r=e({t:()=>i}),i=t({execute:()=>n,supportsCurves:()=>!0});export{r as t};

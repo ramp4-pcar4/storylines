@@ -1,1 +1,0 @@
-import{U as e}from"./request-CWkJWnKD-C7tPY8Rl.js";async function t(t,n){return(await e(t,{responseType:`image`,...n})).data}export{t};

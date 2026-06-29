@@ -1,1 +1,0 @@
-import{t as e}from"./SimpleGeometryCursor-DKtGMtdX-ejexwS2A.js";import{t}from"./OperatorGeneralize-D2WZpait-CWggRUEV.js";var n=new t;function r(e,t,r){return n.execute(e,t,r,null)}function i(t,r,i){let a=n.executeMany(new e(t),r,i,null);return Array.from(a)}function a(){return n.supportsCurves()}export{i as n,r,a as t};
