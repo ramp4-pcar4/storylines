@@ -1,0 +1,1 @@
+import{c as e,r as t}from"./jsonConverter-XwrET8Lk-BaOB7jWR.js";import{t as n}from"./OperatorCrosses-8F761jt0-71LcdUgc.js";var r=new n;function i(n,i){let a=t(n);return r.execute(a.getGeometry(),e(i),a.getSpatialReference(),null)}export{i as execute};
