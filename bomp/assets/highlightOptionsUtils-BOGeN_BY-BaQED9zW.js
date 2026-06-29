@@ -1,0 +1,1 @@
+import"./HighlightDefaults-DN7Nhrde-D5vx_bq5.js";function e(e){return e?.name??`default`}export{e as t};

@@ -1,0 +1,1 @@
+import{t as e}from"./Portal-apNnyOjG-C5IHb0xb.js";function t(t,n){return t===null?n:new e({url:t.field(`url`)})}export{t};

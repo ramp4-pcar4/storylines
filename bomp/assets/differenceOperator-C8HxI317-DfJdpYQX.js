@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-DAXXjFlN.js";import{t}from"./chunk-foFoljWS-8WvI1i2Y.js";import"./apiConverter-DgVehggs-lEdR4FmE.js";import{n}from"./differenceOperator-D4l_K8vL-fC316Nms.js";var r=e({t:()=>i}),i=t({execute:()=>n});export{r as t};

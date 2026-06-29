@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./InterleavedLayout-BhgcrY-S-DInH06pb.js";function n(e,n){return n.push(e.buffer),{buffer:e.buffer,layout:new t(e.layout)}}function r(t){return new e(t.layout).createView(t.buffer)}export{r as n,n as t};

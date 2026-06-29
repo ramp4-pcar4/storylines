@@ -1,0 +1,1 @@
+import{r as e}from"./utils-D0-60cws-D-F6T4ER.js";import{t}from"./FeatureSet-BSqmQtkr-cvn-x_hK.js";import{n}from"./TopFeaturesQuery-BYRpcvEM-CeqcTVxk.js";import{t as r}from"./queryTopFeatures-YeOt_OnP-DzutPPsd.js";async function i(i,a,o,s){let c=e(i),l={...s},{data:u}=await r(c,n.from(a),o,l);return t.fromJSON(u)}export{i as executeTopFeaturesQuery};
