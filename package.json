@@ -41,7 +41,7 @@
         "vue-class-component": "^8.0.0-rc.1",
         "vue-final-modal": "^4.5.5",
         "vue-fullscreen": "^3.1.1",
-        "vue-i18n": "^9.2.2",
+        "vue-i18n": "^11.2.8",
         "vue-papa-parse": "^3.1.0",
         "vue-property-decorator": "^10.0.0-rc.2",
         "vue-router": "^4.2.4",
