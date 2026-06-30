@@ -1,0 +1,1 @@
+import"./vec4f64-DBmXbuUs-ChZtdph7.js";import"./ShaderBuilder-Dy-kUWY5-Xkes0yhG.js";import"./glsl-BgsHvHfn-n7nRq5tN.js";import"./FloatArray-CCh0HzKA-hD_gE8bD.js";import{t as e}from"./ShadedColorMaterial.glsl-CkuvNob6-B4yZt-KG.js";export{e as build};
