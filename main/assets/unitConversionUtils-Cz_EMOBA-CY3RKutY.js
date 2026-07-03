@@ -1,1 +1,0 @@
-import{p as e}from"./typedArrayUtil-DYSyCOD_-CnvjZu6D.js";import{t}from"./lengthUtils-PlXTJGQw-oaH-AHJl.js";function n(e){return!!e&&t[e]!=null}function r(e){return 1/(t[e]||1)}function i(){let n=Object.keys(t);return e(n,`decimal-degrees`),n.sort(),n}var a=i();export{n,r,a as t};

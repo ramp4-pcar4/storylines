@@ -1,1 +1,0 @@
-import{c as e,r as t}from"./jsonConverter-XwrET8Lk-dKEd7At5.js";import{t as n}from"./OperatorOverlaps-DKOMpN96-DLKbNOt4.js";var r=new n;function i(n,i){let a=t(n);return r.execute(a.getGeometry(),e(i),a.getSpatialReference(),null)}export{i as execute};

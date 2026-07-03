@@ -1,1 +1,0 @@
-import"./ShaderBuilder-Dy-kUWY5-Xkes0yhG.js";import"./glsl-BgsHvHfn-n7nRq5tN.js";import"./FloatArray-CCh0HzKA-hD_gE8bD.js";import{h as e}from"./ColorMaterial-CQAzQQFZ-DXOcvAF0.js";export{e as build};
