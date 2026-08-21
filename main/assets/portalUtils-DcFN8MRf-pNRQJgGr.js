@@ -1,1 +1,0 @@
-import{t as e}from"./Portal-apNnyOjG-viV8G05T.js";function t(t,n){return t===null?n:new e({url:t.field(`url`)})}export{t};

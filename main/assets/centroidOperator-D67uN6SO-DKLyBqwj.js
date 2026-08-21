@@ -1,0 +1,1 @@
+import{r as e}from"./rolldown-runtime-DAXXjFlN.js";import{t}from"./chunk-foFoljWS-8WvI1i2Y.js";import"./apiConverter-DgVehggs-DwYYQBOj.js";import{t as n}from"./centroidOperator-BXJs0iaf-MedIThgv.js";var r=e({t:()=>i}),i=t({execute:()=>n});export{r as t};
