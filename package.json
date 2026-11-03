@@ -27,7 +27,7 @@
         "@types/highcharts": "^7.0.0",
         "core-js": "^3.6.5",
         "es-toolkit": "~1.45.1",
-        "highcharts": "^9.3.2",
+        "highcharts": "^13.1.1",
         "highcharts-vue": "^1.4.3",
         "intersection-observer": "^0.12.2",
         "jszip": "^3.10.1",
